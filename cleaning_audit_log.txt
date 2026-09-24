@@ -1,0 +1,43 @@
+Raw file loaded: 3507 rows × 11 columns — preserved unchanged in raw_rows[]
+Working copy created (deep copy of raw; raw_rows untouched)
+  Column 'pollutant_min': 343 'NA' strings -> None (NaN); new column 'pollutant_min_num' created
+  Column 'pollutant_max': 343 'NA' strings -> None (NaN); new column 'pollutant_max_num' created
+  Column 'pollutant_avg': 343 'NA' strings -> None (NaN); new column 'pollutant_avg_num' created
+All three numeric columns have _num variants; original string columns preserved
+last_update parsed successfully: 23-09-2026 12:00:00 → date=2026-09-23, time=12:00:00, hour=12 (assumed IST — not encoded in CSV)
+snapshot_date / snapshot_time / snapshot_hour added — labelled as SNAPSHOT METADATA, NOT time-series
+CO unit conversion: 501 CO rows found
+  CO source unit: µg/m³ (inferred from value range 1–196; mg/m³ interpretation is physically impossible)
+  CO_ug_m3 = pollutant_avg_num (unchanged)
+  CO_mg_m3 = pollutant_avg_num / 1000   ← use this for CPCB AQI sub-index only
+CO_ug_m3 and CO_mg_m3 columns added (None for non-CO rows)
+is_zero_sentinel flag created: 13 rows flagged
+NOTE: 10/13 zero sentinels are NH3; 3/13 are SO2. All occur at stations actively reporting other pollutants.
+Classification: SUSPICIOUS_ZERO_REQUIRES_VALIDATION — not deleted; flagged for validation before NH3/SO2 analysis.
+is_na_reading flag created: 343 rows flagged as NA (9.8%)
+station_na_count, station_valid_pollutant_count, station_completeness_pct added to every row
+Imputation: NOT performed. Reason documented in IMPUTATION_NOTE.
+  Field 'country': no whitespace issues
+  Field 'state': no whitespace issues
+  Field 'city': no whitespace issues
+  Field 'station': 35 values had leading/trailing whitespace — stripped
+  Field 'last_update': no whitespace issues
+  Field 'pollutant_id': no whitespace issues
+  Field 'state': no case inconsistencies found
+  Field 'city': no case inconsistencies found
+board_acronym extracted: 3500 stations succeeded, 7 could not extract (set to None)
+Station names: every station appears exactly 7 times — no duplicates or missing entries
+Geographic: latitude missing=0, longitude missing=0
+  Lat outside India bounds: 0
+  Lon outside India bounds: 0
+No duplicate coordinates found across stations
+Wide (station-level) dataframe: 501 rows × 15 columns
+Wide dataframe: all 7 pollutant columns present for every station (NaN where not measured)
+Station-level pollution-profile features added (valid_count, missing_count, completeness, total/mean/median/range/max_raw)
+dominant_pollutant_by_AQI set to PENDING — requires AQI sub-index calculation (not performed in this step)
+Z-score standardization: {P}_zscore columns added for all 7 pollutants
+METHOD: z = (x - mean_p) / std_p  where mean and std computed across all valid stations per pollutant
+USE: clustering / similarity analysis ONLY — NOT for AQI computation
+Quality flags — high_missingness(>=3 NA): 41, suspicious_zero: 12, incomplete(any NA): 142, coord_issue: 0, dup_coord: 0
+Long-format cleaned CSV saved: aqi_cleaned_long.csv  (3507 rows × 30 columns)
+Station-level wide CSV saved: aqi_cleaned_wide.csv  (501 rows × 37 columns)

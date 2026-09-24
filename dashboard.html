@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Air Quality Intelligence</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+/* ── Reset & base ── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:13px;
+     line-height:1.5;background:#f0f2f5;color:#1f2328;min-height:100vh}
+button{cursor:pointer;font-family:inherit}
+
+/* ── Layout ── */
+#app{display:flex;flex-direction:column;min-height:100vh}
+header{background:#1e3a5f;color:#fff;padding:12px 24px;display:flex;align-items:center;
+       justify-content:space-between;gap:12px;flex-shrink:0;z-index:100;position:sticky;top:0}
+header h1{font-size:15px;font-weight:700;letter-spacing:-.2px;white-space:nowrap}
+header .subtitle{font-size:11px;color:#93c5fd;margin-top:1px}
+.nav{display:flex;gap:3px;flex-wrap:wrap}
+.nav button{background:transparent;border:1px solid rgba(255,255,255,.25);color:#cbd5e1;
+            padding:5px 11px;border-radius:4px;font-size:11.5px;transition:all .15s}
+.nav button:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav button.active{background:#3b82f6;border-color:#3b82f6;color:#fff;font-weight:600}
+
+.page{display:none;padding:20px 24px;flex:1}
+.page.active{display:block}
+
+/* ── Filter bar ── */
+.filter-bar{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;
+            margin-bottom:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-bar label{font-size:11.5px;font-weight:600;color:#57606a;white-space:nowrap}
+.filter-bar select{border:1px solid #d1d5db;border-radius:4px;padding:4px 8px;
+                   font-size:12px;color:#1f2328;background:#fff;min-width:130px}
+.filter-bar .reset-btn{margin-left:auto;background:#f3f4f6;border:1px solid #d1d5db;
+                        color:#374151;padding:4px 12px;border-radius:4px;font-size:12px}
+.filter-bar .reset-btn:hover{background:#e5e7eb}
+
+/* ── Cards ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:14px 16px}
+.card .val{font-size:24px;font-weight:700;color:#1e3a5f;line-height:1}
+.card .lbl{font-size:11px;color:#57606a;margin-top:4px}
+.card .sub{font-size:11px;color:#6b7280;margin-top:2px}
+
+/* ── Grid layouts ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.grid-1-2{display:grid;grid-template-columns:1fr 2fr;gap:14px;margin-bottom:14px}
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:14px}
+
+/* ── Chart panels ── */
+.panel{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:14px 16px}
+.panel h3{font-size:12.5px;font-weight:700;color:#1f2328;margin-bottom:10px}
+.panel .note{font-size:11px;color:#6b7280;margin-top:6px;font-style:italic}
+.chart{width:100%;height:260px}
+.chart-sm{width:100%;height:200px}
+.chart-lg{width:100%;height:340px}
+.chart-xl{width:100%;height:420px}
+
+/* ── Finding callouts ── */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:18px}
+.finding{border-left:3px solid #3b82f6;background:#eff6ff;padding:10px 12px;border-radius:0 4px 4px 0}
+.finding .f-num{font-size:10px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.5px}
+.finding .f-text{font-size:12px;color:#1e3a5f;margin-top:2px;line-height:1.4}
+.finding .f-stat{font-size:14px;font-weight:700;color:#1d4ed8;margin-top:4px}
+
+/* ── Badges ── */
+.badge{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11px;font-weight:600}
+.b-good{background:#d1fae5;color:#065f46}
+.b-sat{background:#d1fae5;color:#065f46}
+.b-mod{background:#fef9c3;color:#713f12}
+.b-poor{background:#fee2e2;color:#991b1b}
+.b-vp{background:#fce7f3;color:#9d174d}
+.b-sev{background:#1f2937;color:#f9fafb}
+
+/* ── Tables ── */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{background:#f7f8fa;text-align:left;padding:6px 8px;border-bottom:2px solid #e5e7eb;
+        font-weight:600;color:#374151}
+.tbl td{padding:5px 8px;border-bottom:1px solid #f3f4f6;vertical-align:top}
+.tbl tr:hover td{background:#f9fafb}
+.tbl-wrap{max-height:300px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:4px}
+
+/* ── Disclaimer ── */
+.disclaimer{background:#fffbeb;border:1px solid #fcd34d;border-radius:4px;
+            padding:8px 12px;font-size:11.5px;color:#78350f;margin-bottom:14px}
+.disclaimer strong{color:#92400e}
+
+/* ── Methodology panel ── */
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.method-item{background:#f7f8fa;border:1px solid #e5e7eb;border-radius:4px;padding:10px 12px}
+.method-item dt{font-size:11px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.method-item dd{font-size:12px;color:#1f2328;line-height:1.5}
+
+/* ── City selector ── */
+.city-selector{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.city-selector label{font-weight:600;font-size:12px;color:#374151}
+.city-selector select{border:1px solid #d1d5db;border-radius:4px;padding:5px 10px;
+                       font-size:12.5px;min-width:200px}
+
+/* ── Map container ── */
+#map-container{background:#fff;border:1px solid #e5e7eb;border-radius:6px;
+               padding:10px;overflow:hidden;min-height:380px;position:relative}
+#station-map{width:100%;height:370px}
+
+/* ── Confidence dots ── */
+.conf-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px}
+
+/* ── Tooltip ── */
+.tooltip-box{position:fixed;background:#1e293b;color:#fff;border-radius:5px;
+             padding:8px 12px;font-size:12px;pointer-events:none;z-index:9999;
+             max-width:260px;line-height:1.5;display:none}
+
+/* ── Scrollable panel ── */
+.scroll-panel{max-height:320px;overflow-y:auto}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-1-2,.grid-2-1{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+  .nav{width:100%}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ── HEADER ────────────────────────────────────────────────── -->
+<header>
+  <div>
+    <h1>India Air Quality Intelligence</h1>
+    <div class="subtitle">Pollution Signatures · AQI Composition · Monitoring Risks &nbsp;|&nbsp;
+      CPCB CAAQMS Snapshot · 23 Sep 2026, 12:00 IST</div>
+  </div>
+  <nav class="nav">
+    <button class="active" onclick="showPage('p1')">National Snapshot</button>
+    <button onclick="showPage('p2')">AQI Drivers</button>
+    <button onclick="showPage('p3')">Composition</button>
+    <button onclick="showPage('p4')">Signatures</button>
+    <button onclick="showPage('p5')">Diversity</button>
+    <button onclick="showPage('p6')">City Variability</button>
+    <button onclick="showPage('p7')">Coverage &amp; Quality</button>
+    <button onclick="showPage('p8')">Methodology</button>
+  </nav>
+</header>
+
+<div class="tooltip-box" id="tooltip"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 1 — NATIONAL SNAPSHOT                                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page active" id="p1">
+  <div class="disclaimer">
+    <strong>Calculated AQI</strong> — computed using CPCB 2014 National AQI methodology.
+    Not official CPCB-reported AQI. Single cross-sectional snapshot — no temporal trends can be established.
+  </div>
+
+  <div class="cards" id="p1-cards">
+    <div class="card"><div class="val" id="c-stations">501</div><div class="lbl">Monitoring Stations</div></div>
+    <div class="card"><div class="val" id="c-cities">263</div><div class="lbl">Cities</div></div>
+    <div class="card"><div class="val" id="c-states">31</div><div class="lbl">States / UTs</div></div>
+    <div class="card"><div class="val" id="c-median">–</div><div class="lbl">National Median Calc. AQI</div><div class="sub" id="c-median-label"></div></div>
+    <div class="card"><div class="val" id="c-complete">–</div><div class="lbl">Full-Confidence AQI Stations</div><div class="sub">(all 7 pollutants valid)</div></div>
+    <div class="card"><div class="val">71.5%</div><div class="lbl">Stations where PM2.5 drives AQI</div></div>
+  </div>
+
+  <div class="findings" id="p1-findings">
+    <div class="finding"><div class="f-num">F1</div><div class="f-text">PM2.5 drives Calculated AQI at</div><div class="f-stat">71.5% of stations</div></div>
+    <div class="finding"><div class="f-num">F2</div><div class="f-text">OZONE is the dominant AQI pollutant at</div><div class="f-stat">45 stations (9%)</div></div>
+    <div class="finding"><div class="f-num">F3</div><div class="f-text">Above AQI 150, PM2.5 drives</div><div class="f-stat">100% of stations</div></div>
+    <div class="finding"><div class="f-num">F4</div><div class="f-text">Top 5 states hold</div><div class="f-stat">55.5% of all stations</div></div>
+  </div>
+
+  <div class="grid-1-2">
+    <div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3>Calculated AQI Category Distribution</h3>
+        <div class="chart" id="ch-aqi-cat"></div>
+      </div>
+      <div class="panel">
+        <h3>Dominant AQI Pollutant (National)</h3>
+        <div class="chart" id="ch-dom-nat"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Monitoring Station Map
+        <span style="font-size:11px;font-weight:400;color:#6b7280;margin-left:6px">
+          Colour = dominant AQI pollutant · Size ∝ Calculated AQI</span>
+      </h3>
+      <div id="station-map"></div>
+      <div class="note">Dot colour indicates the dominant AQI-driving pollutant per station, not the AQI level.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 2 — AQI DRIVERS                                        -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p2">
+  <div class="disclaimer"><strong>Calculated AQI</strong> — CPCB 2014 methodology. Dominant pollutant = pollutant with highest sub-index per station. Association only — no causal inference.</div>
+
+  <div class="filter-bar">
+    <label>State</label>
+    <select id="p2-state" onchange="updateP2()"><option value="">All States</option></select>
+    <label>City</label>
+    <select id="p2-city" onchange="updateP2()"><option value="">All Cities</option></select>
+    <button class="reset-btn" onclick="resetFilter('p2')">Reset</button>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>National AQI Driver Share</h3>
+      <div class="chart" id="ch-dom-bar"></div>
+      <div class="note">Raw concentration rank ≠ AQI driver rank. CO has the 2nd-highest raw median (29 µg/m³) but drives AQI at only 3 stations — its CPCB breakpoints are calibrated in mg/m³ (100× higher threshold).</div>
+    </div>
+    <div class="panel">
+      <h3>State-level Dominant AQI Pollutant</h3>
+      <div class="chart" id="ch-state-dom"></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="panel">
+      <h3>AQI Sub-index Profile — Selected / All Stations</h3>
+      <div class="chart-lg" id="ch-si-profile"></div>
+      <div class="note">Sub-index values on a 0–500 scale. PM2.5 and PM10 sub-indexes are dominant because CPCB breakpoints are calibrated closer to India's observed concentration range for particulate matter.</div>
+    </div>
+    <div class="panel">
+      <h3>Station Table — Filtered</h3>
+      <div class="tbl-wrap">
+        <table class="tbl" id="p2-tbl">
+          <thead><tr><th>Station</th><th>City</th><th>State</th><th>Calc. AQI</th><th>Dominant</th><th>Conf.</th></tr></thead>
+          <tbody id="p2-tbl-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 3 — COMPOSITION DIVERGENCE                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p3">
+  <div class="disclaimer"><strong>Key finding:</strong> Stations with similar Calculated AQI can have different dominant pollutants. This divergence is confined to AQI below 150. Above AQI 150, PM2.5 drives 100% of stations in this snapshot.</div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Dominant Pollutant by AQI Band</h3>
+      <div class="chart-lg" id="ch-band-stack"></div>
+      <div class="note">Above AQI 150, the stacked bar collapses to solid PM2.5 — confirming that compositional diversity exists only in lower AQI ranges.</div>
+    </div>
+    <div class="panel">
+      <h3>Number of Distinct AQI Drivers per Band</h3>
+      <div class="chart" id="ch-band-diversity"></div>
+      <div class="note">In the Good–Satisfactory band (51–100), 5 distinct pollutants drive AQI. Above 150: only PM2.5.</div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:14px">
+    <h3>Station-level Sub-index Composition — Select an AQI Band to compare stations</h3>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+      <label style="font-size:12px;font-weight:600">AQI Band:</label>
+      <select id="p3-band" onchange="updateP3Stations()" style="border:1px solid #d1d5db;border-radius:4px;padding:4px 8px;font-size:12px">
+        <option value="51-100">Good–Satisfactory (51–100)</option>
+        <option value="101-150">Moderate-Low (101–150)</option>
+        <option value="151-200">Moderate-High (151–200)</option>
+        <option value="201-300">Poor (201–300)</option>
+        <option value="301-500">Very Poor + Severe (301–500)</option>
+      </select>
+    </div>
+    <div class="chart-xl" id="ch-p3-stations"></div>
+    <div class="note">Each bar group = one station. Stack shows each pollutant's sub-index contribution. Stations are sorted by dominant pollutant, revealing compositional differences at similar AQI levels.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 4 — POLLUTION SIGNATURES                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="disclaimer">Normalized profiles use city-median value divided by the national 75th percentile. Values above 1.0 indicate above the 75th percentile nationally for that pollutant. Do not interpret normalized values as physical concentrations.</div>
+
+  <div class="filter-bar">
+    <label>State</label>
+    <select id="p4-state" onchange="updateP4()"><option value="">All States</option></select>
+    <label>Min. stations</label>
+    <select id="p4-minstations" onchange="updateP4()">
+      <option value="1">≥1 station</option>
+      <option value="2">≥2 stations</option>
+      <option value="3" selected>≥3 stations</option>
+      <option value="5">≥5 stations</option>
+    </select>
+    <button class="reset-btn" onclick="resetFilter('p4')">Reset</button>
+  </div>
+
+  <div class="grid-2-1">
+    <div class="panel">
+      <h3>City Normalized Pollutant Profile Heatmap</h3>
+      <div class="chart-xl" id="ch-heatmap"></div>
+      <div class="note">Colour intensity = city median / national P75. Red = above national 75th percentile. White/blue = at or below. Single-station cities are lower-confidence profiles.</div>
+    </div>
+    <div class="panel">
+      <h3>City Profile — Select a City</h3>
+      <select id="p4-city-select" onchange="updateCityProfile()" style="width:100%;border:1px solid #d1d5db;border-radius:4px;padding:5px 8px;font-size:12px;margin-bottom:10px"></select>
+      <div class="chart" id="ch-city-radar"></div>
+      <div id="city-profile-info" style="font-size:12px;color:#374151;margin-top:8px;line-height:1.6"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 5 — CONCENTRATION vs DIVERSITY                         -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p5">
+  <div class="disclaimer"><strong>Association only — not causation.</strong> Spearman ρ(Calculated AQI, pollutant-profile entropy) = −0.619 (n=495). Higher entropy = more balanced distribution of sub-index contributions across pollutants.</div>
+
+  <div class="cards">
+    <div class="card"><div class="val">−0.619</div><div class="lbl">Spearman ρ: AQI vs Diversity</div><div class="sub">Strong negative association</div></div>
+    <div class="card"><div class="val">115</div><div class="lbl">High-AQI / Low-Diversity stations</div><div class="sub">PM2.5-dominated pollution</div></div>
+    <div class="card"><div class="val">9</div><div class="lbl">High-AQI / High-Diversity stations</div><div class="sub">Multiple elevated pollutants</div></div>
+    <div class="card"><div class="val">237</div><div class="lbl">Low-AQI / High-Diversity stations</div><div class="sub">Balanced, low-level profiles</div></div>
+  </div>
+
+  <div class="grid-2-1">
+    <div class="panel">
+      <h3>Calculated AQI vs Pollutant-Profile Diversity (Shannon Entropy)</h3>
+      <div class="filter-bar" style="margin-bottom:10px">
+        <label>Colour by:</label>
+        <select id="p5-colour" onchange="updateP5()" style="border:1px solid #d1d5db;border-radius:4px;padding:4px 8px;font-size:12px">
+          <option value="dominant">Dominant Pollutant</option>
+          <option value="label">AQI Category</option>
+          <option value="state">State</option>
+        </select>
+      </div>
+      <div class="chart-xl" id="ch-entropy-scatter"></div>
+      <div class="note">Each dot = one station. Dashed lines divide quadrants at AQI P75 (190) and entropy median (1.30). The negative trend confirms: the most polluted stations have the least compositionally diverse profiles.</div>
+    </div>
+    <div class="panel">
+      <h3>Quadrant Summary</h3>
+      <div class="chart" id="ch-quad-bar"></div>
+      <div style="margin-top:12px;font-size:12px;line-height:1.7;color:#374151">
+        <p><strong>High-AQI / Low-Diversity:</strong> Single-pollutant (PM2.5) dominated. Most common pattern for severely polluted stations.</p>
+        <p style="margin-top:6px"><strong>Low-AQI / High-Diversity:</strong> Largest group. Clean stations where multiple pollutants contribute equally at low levels.</p>
+        <p style="margin-top:6px"><strong>High-AQI / High-Diversity (9 stations):</strong> Industrial zones with co-elevated PM2.5 and SO2 — e.g., Pithampur, Mandideep (Madhya Pradesh).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 6 — WITHIN-CITY VARIABILITY                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p6">
+  <div class="disclaimer">City-level aggregation can conceal substantial within-city variation. For cities with ≥4 stations, Calculated AQI distributions are shown rather than point estimates. Single-station cities cannot have within-city variability measured.</div>
+
+  <div class="city-selector">
+    <label>Select City (≥4 stations):</label>
+    <select id="p6-city" onchange="updateP6()"></select>
+    <span id="p6-station-count" style="font-size:12px;color:#6b7280"></span>
+  </div>
+
+  <div class="cards" id="p6-cards">
+    <div class="card"><div class="val" id="p6-n">–</div><div class="lbl">Stations in City</div></div>
+    <div class="card"><div class="val" id="p6-med">–</div><div class="lbl">Median Calc. AQI</div></div>
+    <div class="card"><div class="val" id="p6-range">–</div><div class="lbl">AQI Range (min–max)</div></div>
+    <div class="card"><div class="val" id="p6-std">–</div><div class="lbl">AQI Std. Deviation</div></div>
+    <div class="card"><div class="val" id="p6-iqr">–</div><div class="lbl">Interquartile Range</div></div>
+    <div class="card"><div class="val" id="p6-cv">–</div><div class="lbl">Coefficient of Variation</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Station Calculated AQI Distribution — <span id="p6-city-title">–</span></h3>
+      <div class="chart-lg" id="ch-city-aqi"></div>
+    </div>
+    <div class="panel">
+      <h3>Station-level Sub-index Profile — <span id="p6-city-title2">–</span></h3>
+      <div class="chart-lg" id="ch-city-si"></div>
+      <div class="note">Each line = one station. The spread reveals which pollutants drive within-city variation.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Within-City Variability Summary — Cities with ≥4 Stations</h3>
+    <div class="chart-lg" id="ch-city-cv-bar"></div>
+    <div class="note">Bars show AQI range (min–max) within each city. Delhi example: 45 stations span AQI 41–388 simultaneously in this snapshot.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 7 — MONITORING COVERAGE & DATA QUALITY                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p7">
+  <div class="disclaimer">More monitoring stations does not imply better air quality. Coverage maps show where the analytical picture is strongest or weakest. States with fewer than 5 stations are labelled LOW SAMPLE — state-level AQI estimates from these states carry higher uncertainty.</div>
+
+  <div class="cards">
+    <div class="card"><div class="val">278</div><div class="lbl">Stations in top 5 states</div><div class="sub">55.5% of all 501 stations</div></div>
+    <div class="card"><div class="val">9</div><div class="lbl">States with only 1 station</div><div class="sub">Single-point estimates only</div></div>
+    <div class="card"><div class="val">17.8%</div><div class="lbl">NH3 missingness (highest)</div><div class="sub">89 of 501 stations</div></div>
+    <div class="card"><div class="val">24.8%</div><div class="lbl">Karnataka overall NA rate</div><div class="sub">Highest among large states</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Stations per State</h3>
+      <div class="chart-lg" id="ch-state-stations"></div>
+      <div class="note">States with &lt;5 stations: Arunachal Pradesh, Himachal Pradesh, Jharkhand, Ladakh, Meghalaya, Mizoram, Nagaland, Puducherry, Sikkim, Tripura, Uttarakhand, Jammu &amp; Kashmir.</div>
+    </div>
+    <div class="panel">
+      <h3>AQI Confidence Category by State</h3>
+      <div class="chart-lg" id="ch-state-conf"></div>
+      <div class="note">Full = all 7 pollutant sub-indexes available. Partial = 4–6. Low/Single = fewer than 4 valid sub-indexes.</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Pollutant Missingness — National (% of 501 stations)</h3>
+      <div class="chart" id="ch-pol-na"></div>
+      <div class="note">NH3 has the highest missingness (17.8%). CO and OZONE have the lowest (4%). Despite high NH3 coverage gaps, NH3 never drives composite AQI — its CPCB breakpoints far exceed all observed values.</div>
+    </div>
+    <div class="panel">
+      <h3>Data Quality Flags</h3>
+      <div style="margin-bottom:12px">
+        <p style="font-size:12.5px;font-weight:600;margin-bottom:6px">Suspicious Zero Readings (13 rows, 12 stations)</p>
+        <div class="tbl-wrap" style="max-height:140px">
+          <table class="tbl" id="p7-zero-tbl">
+            <thead><tr><th>Station</th><th>City</th><th>State</th><th>Pollutant</th></tr></thead>
+            <tbody id="p7-zero-body"></tbody>
+          </table>
+        </div>
+        <p class="note">Retained in dataset and flagged. Classified as "suspicious zero — requires validation".</p>
+      </div>
+      <div>
+        <p style="font-size:12.5px;font-weight:600;margin-bottom:6px">Possible Sensor Anomalies (3 stations)</p>
+        <div class="tbl-wrap" style="max-height:110px">
+          <table class="tbl" id="p7-anomaly-tbl">
+            <thead><tr><th>Station</th><th>CO (µg/m³)</th><th>Pattern</th><th>Calc. AQI</th></tr></thead>
+            <tbody id="p7-anomaly-body"></tbody>
+          </table>
+        </div>
+        <p class="note">CO min = max = avg (flat reading) at values &gt;100 µg/m³. Retained; flagged.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 8 — METHODOLOGY                                        -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="p8">
+  <div class="panel" style="margin-bottom:14px">
+    <h3>Methodology &amp; Limitations</h3>
+    <div class="method-grid" style="margin-top:10px">
+      <div class="method-item"><dt>Data Source</dt><dd>Government of India Open Government Data Platform (data.gov.in)<br>CPCB CAAQMS Real-time Air Quality Index<br>Resource ID: 3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69</dd></div>
+      <div class="method-item"><dt>Snapshot</dt><dd>23 September 2026, 12:00:00 IST<br>Single point-in-time snapshot. No temporal trends, seasonality, or changes over time can be established from this dataset.</dd></div>
+      <div class="method-item"><dt>AQI Calculation</dt><dd>All AQI values are <strong>Calculated AQI</strong>, not official CPCB-reported AQI.<br>Method: CPCB 2014 National AQI Framework — piecewise linear sub-index formula, composite = max sub-index.</dd></div>
+      <div class="method-item"><dt>Averaging Period</dt><dd>The <code>pollutant_avg</code> field's averaging window is not documented in the CSV.<br><strong>Assumed:</strong> 24-hour average for PM2.5, PM10, SO2, NO2, NH3; 8-hour average for CO and OZONE — consistent with CPCB 2014 methodology.</dd></div>
+      <div class="method-item"><dt>CO Unit</dt><dd>CO values in dataset are in <strong>µg/m³</strong> (confirmed by physical plausibility — mg/m³ interpretation would place all stations in the Severe category, which is physically impossible).<br>Converted to mg/m³ (÷1000) before applying CPCB AQI sub-index breakpoints.</dd></div>
+      <div class="method-item"><dt>Data Quality</dt><dd>343 NA readings (9.8% of 3,507 records) retained and flagged.<br>13 suspicious zero readings (NH3=11, SO2=2) retained and flagged as "requires validation".<br>3 possible sensor anomalies (CO flat readings &gt;100 µg/m³) retained and flagged.</dd></div>
+      <div class="method-item"><dt>AQI Confidence</dt><dd><strong>Full (A):</strong> 359 stations — all 7 sub-indexes available.<br><strong>Partial-High (B):</strong> 110 stations — 4–6 sub-indexes.<br><strong>Partial-Low (C):</strong> 26 stations — 1–3 sub-indexes.<br><strong>Single (C):</strong> 6 stations — 1 sub-index only.</dd></div>
+      <div class="method-item"><dt>Coverage</dt><dd>Monitoring coverage is highly unequal. Top 5 states hold 55.5% of all stations. 9 states/UTs have 1 station each. AQI comparisons across states must account for this imbalance.</dd></div>
+      <div class="method-item"><dt>Standardization</dt><dd>Normalized pollutant profiles use city median ÷ national 75th percentile.<br>Diversity (entropy) uses Shannon entropy of pollutant sub-index profile per station.<br>Z-scores used for clustering comparison only — not for AQI calculation.</dd></div>
+      <div class="method-item"><dt>Analytical Scope</dt><dd>All associations in this project are observational. No causal claims are made. Cross-sectional data cannot establish pollution trends, causes, or changes over time.</dd></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>CPCB 2014 AQI Breakpoints Reference</h3>
+    <table class="tbl">
+      <thead><tr><th>Pollutant</th><th>Avg Period</th><th>Unit</th><th>Good</th><th>Satisfactory</th><th>Moderate</th><th>Poor</th><th>Very Poor</th><th>Severe</th></tr></thead>
+      <tbody>
+        <tr><td>PM2.5</td><td>24h</td><td>µg/m³</td><td>0–30</td><td>30–60</td><td>60–90</td><td>90–120</td><td>120–250</td><td>250–380</td></tr>
+        <tr><td>PM10</td><td>24h</td><td>µg/m³</td><td>0–50</td><td>50–100</td><td>100–250</td><td>250–350</td><td>350–430</td><td>430–600</td></tr>
+        <tr><td>SO2</td><td>24h</td><td>µg/m³</td><td>0–40</td><td>40–80</td><td>80–380</td><td>380–800</td><td>800–1600</td><td>1600–2100</td></tr>
+        <tr><td>NO2</td><td>24h</td><td>µg/m³</td><td>0–40</td><td>40–80</td><td>80–180</td><td>180–280</td><td>280–400</td><td>400–800</td></tr>
+        <tr><td>CO</td><td>8h</td><td>mg/m³</td><td>0–1</td><td>1–2</td><td>2–10</td><td>10–17</td><td>17–34</td><td>34–46</td></tr>
+        <tr><td>NH3</td><td>24h</td><td>µg/m³</td><td>0–200</td><td>200–400</td><td>400–800</td><td>800–1200</td><td>1200–1800</td><td>1800–2400</td></tr>
+        <tr><td>OZONE</td><td>8h</td><td>µg/m³</td><td>0–50</td><td>50–100</td><td>100–168</td><td>168–208</td><td>208–748</td><td>748–1000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- #app -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                                   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+// ── Colour maps ────────────────────────────────────────────────
+const POL_COLOR = {
+  'PM2.5':'#ef4444','PM10':'#f97316','SO2':'#eab308',
+  'NO2':'#8b5cf6','CO':'#06b6d4','NH3':'#10b981','OZONE':'#3b82f6',''  :'#9ca3af'
+};
+const AQI_COLOR = {
+  'Good':'#22c55e','Satisfactory':'#84cc16','Moderate':'#f59e0b',
+  'Poor':'#f97316','Very Poor':'#ef4444','Severe':'#7f1d1d',''  :'#9ca3af'
+};
+const CONF_COLOR = {'FULL':'#22c55e','PARTIAL_HIGH_CONFIDENCE':'#f59e0b',
+  'PARTIAL_LOW_CONFIDENCE':'#f97316','SINGLE_POLLUTANT_ONLY':'#ef4444'};
+const CONF_LABEL = {'FULL':'Full','PARTIAL_HIGH_CONFIDENCE':'Partial-High',
+  'PARTIAL_LOW_CONFIDENCE':'Partial-Low','SINGLE_POLLUTANT_ONLY':'Single'};
+const POLLUTANTS = ['PM2.5','PM10','SO2','NO2','CO','NH3','OZONE'];
+const SI_KEYS    = ['si_pm25','si_pm10','si_so2','si_no2','si_co','si_nh3','si_ozone'];
+
+// ── ECharts registry ────────────────────────────────────────────
+const charts = {};
+function getChart(id) {
+  if (!charts[id]) {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    charts[id] = echarts.init(el, null, {renderer:'canvas'});
+  }
+  return charts[id];
+}
+window.addEventListener('resize', () => {
+  Object.values(charts).forEach(c => c && c.resize());
+});
+
+// ── Page navigation ─────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach((b,i) => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const pages = ['p1','p2','p3','p4','p5','p6','p7','p8'];
+  const btn = document.querySelectorAll('.nav button')[pages.indexOf(id)];
+  if (btn) btn.classList.add('active');
+  setTimeout(() => Object.values(charts).forEach(c => c && c.resize()), 50);
+  initPage(id);
+}
+
+// ── Global state ────────────────────────────────────────────────
+let D = null;  // dashboard data
+let stationsFiltered = [];
+
+// ── Load data ───────────────────────────────────────────────────
+fetch('dashboard_data.json')
+  .then(r => r.json())
+  .then(data => {
+    D = data;
+    stationsFiltered = D.stations;
+    initPage('p1');
+    populateFilters();
+  })
+  .catch(err => {
+    document.querySelector('.page.active').innerHTML =
+      '<div style="padding:40px;color:#991b1b;font-size:14px">⚠ Could not load dashboard_data.json. ' +
+      'Open this file from a local server (e.g. <code>python -m http.server 8000</code>) or ensure ' +
+      'dashboard_data.json is in the same folder as this HTML file. Error: ' + err.message + '</div>';
+  });
+
+function populateFilters() {
+  const states = [...new Set(D.stations.map(s => s.state))].sort();
+  ['p2-state','p4-state'].forEach(id => {
+    const el = document.getElementById(id);
+    states.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; el.appendChild(o); });
+  });
+  // City variability cities
+  const p6sel = document.getElementById('p6-city');
+  const citisWith4 = D.city_variability.filter(c => c.n >= 4).sort((a,b)=>b.n-a.n);
+  citisWith4.forEach(c => {
+    const o=document.createElement('option'); o.value=c.city; o.textContent=`${c.city} (${c.n} stations)`;
+    p6sel.appendChild(o);
+  });
+  // P4 city select
+  buildP4CitySelect('');
+}
+
+function resetFilter(page) {
+  document.querySelectorAll(`#${page}-state, #${page}-city`).forEach(s => s.value='');
+  if (page==='p2') updateP2();
+  if (page==='p4') updateP4();
+}
+
+// ── Page initialisers ───────────────────────────────────────────
+const initialised = new Set();
+function initPage(id) {
+  if (initialised.has(id)) return;
+  initialised.add(id);
+  if (id==='p1') initP1();
+  if (id==='p2') initP2();
+  if (id==='p3') initP3();
+  if (id==='p4') initP4();
+  if (id==='p5') initP5();
+  if (id==='p6') initP6();
+  if (id==='p7') initP7();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 1
+// ═══════════════════════════════════════════════════════════════
+function initP1() {
+  const m = D.meta, n = D.national;
+  document.getElementById('c-median').textContent = m.national_median_aqi;
+  const lbl = aqiLabel(m.national_median_aqi);
+  document.getElementById('c-median-label').textContent = lbl;
+  document.getElementById('c-complete').textContent = m.complete_aqi_pct + '%';
+
+  // AQI category donut
+  const labelOrder = ['Good','Satisfactory','Moderate','Poor','Very Poor','Severe'];
+  const catData = labelOrder.map(l => ({value: n.aqi_label_dist[l]||0, name:l, itemStyle:{color:AQI_COLOR[l]}}));
+  getChart('ch-aqi-cat').setOption({
+    tooltip:{trigger:'item',formatter:'{b}: {c} stations ({d}%)'},
+    legend:{orient:'vertical',left:'left',textStyle:{fontSize:11}},
+    series:[{type:'pie',radius:['45%','75%'],data:catData,label:{fontSize:11},
+             emphasis:{itemStyle:{shadowBlur:8,shadowColor:'rgba(0,0,0,.2)'}}}]
+  });
+
+  // Dominant pollutant bar
+  const domItems = Object.entries(n.dom_pollutant_dist).sort((a,b)=>b[1]-a[1]);
+  getChart('ch-dom-nat').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    grid:{left:80,right:20,top:10,bottom:30},
+    xAxis:{type:'value',name:'Stations',nameTextStyle:{fontSize:11}},
+    yAxis:{type:'category',data:domItems.map(d=>d[0]),axisLabel:{fontSize:11},
+           axisLine:{lineStyle:{color:'#e5e7eb'}}},
+    series:[{type:'bar',data:domItems.map(d=>({value:d[1],itemStyle:{color:POL_COLOR[d[0]]}})),
+             label:{show:true,position:'right',fontSize:11,formatter:p=>`${p.value} (${(100*p.value/501).toFixed(1)}%)`}}]
+  });
+
+  // Map
+  drawMap();
+}
+
+function aqiLabel(v) {
+  if (v==null) return '';
+  if (v<=50) return 'Good';
+  if (v<=100) return 'Satisfactory';
+  if (v<=200) return 'Moderate';
+  if (v<=300) return 'Poor';
+  if (v<=400) return 'Very Poor';
+  return 'Severe';
+}
+
+function drawMap() {
+  const canvas = document.getElementById('station-map');
+  if (!canvas) return;
+  const W = canvas.clientWidth || 600, H = 370;
+  canvas.innerHTML = '';
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('width','100%'); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  canvas.appendChild(svg);
+
+  // India rough bounds: lat 6–37, lon 68–98
+  const LAT_MIN=6, LAT_MAX=37, LON_MIN=68, LON_MAX=98;
+  const pad = 20;
+  function toXY(lat, lon) {
+    const x = pad + (lon - LON_MIN)/(LON_MAX-LON_MIN) * (W - 2*pad);
+    const y = H - pad - (lat - LAT_MIN)/(LAT_MAX-LAT_MIN) * (H - 2*pad);
+    return [x, y];
+  }
+
+  // background
+  const bg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  bg.setAttribute('width','100%'); bg.setAttribute('height',H);
+  bg.setAttribute('fill','#f8fafc'); bg.setAttribute('rx','4');
+  svg.appendChild(bg);
+
+  // Grid lines
+  [10,20,30].forEach(lat => {
+    const [x1,y1] = toXY(lat, LON_MIN), [x2,y2] = toXY(lat, LON_MAX);
+    const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+    l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+    l.setAttribute('stroke','#e2e8f0'); l.setAttribute('stroke-width','0.5');
+    svg.appendChild(l);
+  });
+
+  const tooltip = document.getElementById('tooltip');
+  D.stations.forEach(s => {
+    const [x,y] = toXY(s.lat, s.lon);
+    const aqi = s.aqi || 0;
+    const r = Math.max(3, Math.min(9, 3 + aqi/80));
+    const col = POL_COLOR[s.dominant] || '#9ca3af';
+    const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx', x.toFixed(1));
+    circle.setAttribute('cy', y.toFixed(1));
+    circle.setAttribute('r', r.toFixed(1));
+    circle.setAttribute('fill', col);
+    circle.setAttribute('fill-opacity','0.75');
+    circle.setAttribute('stroke','rgba(0,0,0,.15)');
+    circle.setAttribute('stroke-width','0.5');
+    circle.style.cursor = 'pointer';
+    circle.addEventListener('mouseenter', e => {
+      tooltip.style.display='block';
+      tooltip.innerHTML = `<strong>${s.station}</strong><br>${s.city}, ${s.state}<br>` +
+        `Calc. AQI: <strong>${s.aqi?.toFixed(0)||'N/A'}</strong> (${s.aqi_label||''})<br>` +
+        `Dominant: <strong>${s.dominant||'N/A'}</strong><br>` +
+        `Confidence: ${CONF_LABEL[s.aqi_category]||''}`;
+    });
+    circle.addEventListener('mousemove', e => {
+      tooltip.style.left = (e.clientX+12)+'px';
+      tooltip.style.top  = (e.clientY+12)+'px';
+    });
+    circle.addEventListener('mouseleave', () => { tooltip.style.display='none'; });
+    svg.appendChild(circle);
+  });
+
+  // Legend
+  const legData = [['PM2.5','#ef4444'],['PM10','#f97316'],['OZONE','#3b82f6'],
+                   ['SO2','#eab308'],['NO2','#8b5cf6'],['CO','#06b6d4'],['NH3','#10b981']];
+  let lx = pad;
+  legData.forEach(([name,col]) => {
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx', lx+5); c.setAttribute('cy', H-6);
+    c.setAttribute('r', 4); c.setAttribute('fill', col);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x', lx+12); t.setAttribute('y', H-3);
+    t.setAttribute('font-size','10'); t.setAttribute('fill','#374151');
+    t.textContent = name;
+    g.appendChild(c); g.appendChild(t);
+    svg.appendChild(g);
+    lx += name.length*6 + 18;
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 2
+// ═══════════════════════════════════════════════════════════════
+function initP2() { updateP2(); }
+
+function updateP2() {
+  if (!D) return;
+  const state = document.getElementById('p2-state').value;
+  const city  = document.getElementById('p2-city').value;
+
+  // Update city dropdown
+  const cityEl = document.getElementById('p2-city');
+  const prevCity = cityEl.value;
+  while (cityEl.options.length > 1) cityEl.remove(1);
+  const filteredByState = state ? D.stations.filter(s => s.state===state) : D.stations;
+  const cities = [...new Set(filteredByState.map(s => s.city))].sort();
+  cities.forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; cityEl.appendChild(o); });
+  if (cities.includes(prevCity)) cityEl.value = prevCity;
+
+  const filtered = D.stations.filter(s =>
+    (!state || s.state===state) && (!city || s.city===city)
+  );
+
+  // Dominant bar
+  const domCount = {};
+  POLLUTANTS.forEach(p => domCount[p]=0);
+  filtered.forEach(s => { if(s.dominant) domCount[s.dominant] = (domCount[s.dominant]||0)+1; });
+  const domItems = Object.entries(domCount).filter(d=>d[1]>0).sort((a,b)=>b[1]-a[1]);
+  const total = filtered.length;
+  getChart('ch-dom-bar').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+             formatter:p=>`${p[0].name}: ${p[0].value} stations (${(100*p[0].value/total).toFixed(1)}%)`},
+    grid:{left:80,right:40,top:10,bottom:30},
+    xAxis:{type:'value'},
+    yAxis:{type:'category',data:domItems.map(d=>d[0]),axisLabel:{fontSize:11}},
+    series:[{type:'bar',data:domItems.map(d=>({value:d[1],itemStyle:{color:POL_COLOR[d[0]]}})),
+             label:{show:true,position:'right',fontSize:11}}]
+  });
+
+  // State dominant chart
+  const stateData = {};
+  filtered.forEach(s => {
+    if (!stateData[s.state]) stateData[s.state]={};
+    if (s.dominant) stateData[s.state][s.dominant]=(stateData[s.state][s.dominant]||0)+1;
+  });
+  const stateNames = Object.keys(stateData).sort((a,b) =>
+    Object.values(stateData[b]).reduce((s,v)=>s+v,0) - Object.values(stateData[a]).reduce((s,v)=>s+v,0)
+  ).slice(0,15);
+  const series2 = POLLUTANTS.map(p => ({
+    name: p, type:'bar', stack:'total',
+    data: stateNames.map(st => stateData[st]?.[p]||0),
+    itemStyle:{color:POL_COLOR[p]},
+    label:{show:false}
+  }));
+  getChart('ch-state-dom').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    legend:{top:0,textStyle:{fontSize:10},icon:'circle'},
+    grid:{left:120,right:20,top:40,bottom:30},
+    xAxis:{type:'value'},
+    yAxis:{type:'category',data:stateNames,axisLabel:{fontSize:10}},
+    series: series2
+  });
+
+  // SI profile box
+  const siMedians = SI_KEYS.map((k,i) => {
+    const vals = filtered.map(s=>s[k]).filter(v=>v!=null).sort((a,b)=>a-b);
+    if (!vals.length) return 0;
+    return vals[Math.floor(vals.length/2)];
+  });
+  getChart('ch-si-profile').setOption({
+    tooltip:{trigger:'axis'},
+    grid:{left:60,right:20,top:20,bottom:50},
+    xAxis:{type:'category',data:POLLUTANTS,axisLabel:{rotate:0,fontSize:11}},
+    yAxis:{type:'value',name:'Median Sub-index',max:500,nameTextStyle:{fontSize:11}},
+    series:[{type:'bar',data:siMedians.map((v,i)=>({value:v,itemStyle:{color:POL_COLOR[POLLUTANTS[i]]}})),
+             label:{show:true,position:'top',fontSize:11,formatter:p=>p.value.toFixed(0)}}]
+  });
+
+  // Table
+  const tbody = document.getElementById('p2-tbl-body');
+  tbody.innerHTML = '';
+  const toShow = filtered.slice(0,200);
+  toShow.sort((a,b)=>(b.aqi||0)-(a.aqi||0));
+  toShow.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${s.station}</td>
+      <td>${s.city}</td><td>${s.state}</td>
+      <td><strong>${s.aqi?.toFixed(0)||'N/A'}</strong></td>
+      <td><span style="color:${POL_COLOR[s.dominant]};font-weight:600">${s.dominant||'N/A'}</span></td>
+      <td><span style="font-size:10px;color:${CONF_COLOR[s.aqi_category]||'#9ca3af'}">${CONF_LABEL[s.aqi_category]||''}</span></td>`;
+    tbody.appendChild(tr);
+  });
+  if (filtered.length > 200) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td colspan="6" style="text-align:center;color:#6b7280;font-style:italic">Showing 200 of ${filtered.length} stations. Use filters to narrow.</td>`;
+    tbody.appendChild(tr);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 3
+// ═══════════════════════════════════════════════════════════════
+function initP3() {
+  // Band stacked bar
+  const bands = D.band_data;
+  const series3 = POLLUTANTS.map(p => ({
+    name: p, type:'bar', stack:'total',
+    data: bands.map(b => b.dom_dist[p]||0),
+    itemStyle:{color:POL_COLOR[p]},
+    label:{show:false}
+  }));
+  getChart('ch-band-stack').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>{
+      let s=`<strong>${params[0].axisValue}</strong><br>`;
+      params.forEach(p=>{if(p.value>0)s+=`${p.marker}${p.seriesName}: ${p.value} stations<br>`});
+      return s;
+    }},
+    legend:{top:0,textStyle:{fontSize:10},icon:'circle'},
+    grid:{left:110,right:20,top:40,bottom:30},
+    xAxis:{type:'value',name:'Stations'},
+    yAxis:{type:'category',data:bands.map(b=>`${b.band} (${b.range})`),axisLabel:{fontSize:10}},
+    series: series3
+  });
+
+  // Distinct drivers per band
+  getChart('ch-band-diversity').setOption({
+    tooltip:{trigger:'axis'},
+    grid:{left:110,right:60,top:10,bottom:30},
+    xAxis:{type:'value',max:6,interval:1},
+    yAxis:{type:'category',data:bands.map(b=>`${b.band}`),axisLabel:{fontSize:11}},
+    series:[{type:'bar',data:bands.map(b=>b.n_distinct_dom),
+             label:{show:true,position:'right',fontSize:12,formatter:p=>p.value>1?`${p.value} pollutants`:'1 (PM2.5 only)'},
+             itemStyle:{color:params=>params.value<=1?'#ef4444':'#3b82f6'}}]
+  });
+
+  updateP3Stations();
+}
+
+function updateP3Stations() {
+  if (!D) return;
+  const sel = document.getElementById('p3-band').value;
+  const [lo,hi] = sel.split('-').map(Number);
+  const inBand = D.stations.filter(s => s.aqi!=null && s.aqi>=lo && s.aqi<=hi && s.dominant);
+  inBand.sort((a,b)=>{
+    const pa = POLLUTANTS.indexOf(a.dominant), pb = POLLUTANTS.indexOf(b.dominant);
+    return pa-pb || (b.aqi||0)-(a.aqi||0);
+  });
+  const show = inBand.slice(0, 60);
+  const series4 = POLLUTANTS.map((p,pi) => ({
+    name:p, type:'bar', stack:'si',
+    data: show.map(s=>s[SI_KEYS[pi]]||0),
+    itemStyle:{color:POL_COLOR[p]},
+    label:{show:false}
+  }));
+  getChart('ch-p3-stations').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>{
+      const st = show[params[0].dataIndex];
+      let s=`<strong>${st.station}</strong><br>${st.city}, ${st.state}<br>Calc. AQI: <strong>${st.aqi?.toFixed(0)}</strong> — Dom: ${st.dominant}<br>`;
+      params.forEach(p=>{if(p.value>0)s+=`${p.marker}${p.seriesName}: ${p.value.toFixed(1)}<br>`});
+      return s;
+    }},
+    legend:{top:0,textStyle:{fontSize:10},icon:'circle'},
+    grid:{left:20,right:20,top:40,bottom:80},
+    xAxis:{type:'category',data:show.map(s=>s.city),axisLabel:{rotate:45,fontSize:10}},
+    yAxis:{type:'value',name:'Sub-index',max:500},
+    series: series4
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 4
+// ═══════════════════════════════════════════════════════════════
+function initP4() { updateP4(); }
+
+function buildP4CitySelect(state) {
+  const sel = document.getElementById('p4-city-select');
+  sel.innerHTML = '';
+  const min = parseInt(document.getElementById('p4-minstations')?.value||1);
+  const filtered = D.city_profiles.filter(c => (!state||c.state===state) && c.n>=min);
+  filtered.sort((a,b)=>(b['PM2.5']||0)-(a['PM2.5']||0));
+  filtered.forEach(c => {
+    const o=document.createElement('option');
+    o.value=c.city; o.textContent=`${c.city} (${c.state}, ${c.n} stn)`;
+    sel.appendChild(o);
+  });
+  if (filtered.length) updateCityProfile();
+}
+
+function updateP4() {
+  if (!D) return;
+  const state = document.getElementById('p4-state').value;
+  const min = parseInt(document.getElementById('p4-minstations').value||1);
+  const filtered = D.city_profiles.filter(c => (!state||c.state===state) && c.n>=min);
+  filtered.sort((a,b)=>(b['PM2.5_norm']||0)-(a['PM2.5_norm']||0));
+  const show = filtered.slice(0,40);
+
+  // Heatmap
+  const yData = show.map(c=>c.city);
+  const xData = POLLUTANTS;
+  const heatData = [];
+  show.forEach((c,yi) => {
+    POLLUTANTS.forEach((p,xi) => {
+      const v = c[`${p}_norm`];
+      heatData.push([xi, yi, v!=null ? Math.min(v,3).toFixed(2) : null]);
+    });
+  });
+
+  getChart('ch-heatmap').setOption({
+    tooltip:{formatter:p=>{
+      if(p.value[2]==null) return 'No data';
+      const city = yData[p.value[1]], pol = xData[p.value[0]];
+      const raw = filtered.find(c=>c.city===city);
+      return `<strong>${city}</strong><br>${pol}: ${raw?.[pol]?.toFixed(1)||'N/A'} µg/m³<br>Norm: ${p.value[2]}× national P75`;
+    }},
+    grid:{left:110,right:80,top:10,bottom:40},
+    xAxis:{type:'category',data:xData,axisLabel:{fontSize:11}},
+    yAxis:{type:'category',data:yData,axisLabel:{fontSize:10}},
+    visualMap:{min:0,max:3,calculable:true,orient:'vertical',right:10,top:'center',
+               inRange:{color:['#dbeafe','#93c5fd','#fef9c3','#fca5a5','#ef4444']},
+               textStyle:{fontSize:10},text:['3×','0']},
+    series:[{type:'heatmap',data:heatData,
+             emphasis:{itemStyle:{shadowBlur:10,shadowColor:'rgba(0,0,0,.5)'}}}]
+  });
+
+  buildP4CitySelect(state);
+}
+
+function updateCityProfile() {
+  if (!D) return;
+  const sel = document.getElementById('p4-city-select');
+  const city = sel.value;
+  if (!city) return;
+  const prof = D.city_profiles.find(c=>c.city===city);
+  if (!prof) return;
+  const indicator = POLLUTANTS.map(p=>({name:p,max:3.5}));
+  const values = POLLUTANTS.map(p=>Math.min(prof[`${p}_norm`]||0,3.5));
+
+  getChart('ch-city-radar').setOption({
+    tooltip:{formatter:p=>{
+      const vals = p.data.value;
+      let s='';
+      POLLUTANTS.forEach((pl,i)=>{ s+=`${pl}: ${vals[i].toFixed(2)}× P75 / ${prof[pl]?.toFixed(1)||'N/A'} µg/m³<br>`; });
+      return s;
+    }},
+    radar:{indicator,splitArea:{areaStyle:{color:['#f8fafc','#fff']}},
+           axisLine:{lineStyle:{color:'#e5e7eb'}},splitLine:{lineStyle:{color:'#e5e7eb'}}},
+    series:[{type:'radar',data:[{value:values,name:city,
+             lineStyle:{color:'#3b82f6',width:2},
+             areaStyle:{color:'rgba(59,130,246,.15)'},
+             itemStyle:{color:'#3b82f6'}}]}]
+  });
+
+  const info = document.getElementById('city-profile-info');
+  const sig = prof.signature_pollutant;
+  const sigNorm = prof[`${sig}_norm`];
+  info.innerHTML = `<strong>${city}</strong> (${prof.state}) &nbsp;·&nbsp; ${prof.n} station${prof.n>1?'s':''}<br>
+    Most elevated pollutant (vs national P75): <strong style="color:${POL_COLOR[sig]}">${sig}</strong> (${sigNorm?.toFixed(2)}× national P75)<br>
+    PM2.5: ${prof['PM2.5']?.toFixed(1)||'N/A'} µg/m³ &nbsp; PM10: ${prof['PM10']?.toFixed(1)||'N/A'} µg/m³
+    ${prof.n<3?'<br><em style="color:#92400e">Low station count — profile confidence is lower.</em>':''}`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 5
+// ═══════════════════════════════════════════════════════════════
+function initP5() { updateP5(); }
+
+function updateP5() {
+  if (!D) return;
+  const colourBy = document.getElementById('p5-colour').value;
+  const AQI_P75 = 190, ENT_MED = 1.30;
+
+  const series = [];
+  if (colourBy === 'dominant') {
+    POLLUTANTS.concat(['']).forEach(pol => {
+      const pts = D.entropy_scatter.filter(s=>s.dominant===pol);
+      if (!pts.length) return;
+      series.push({name:pol||'Unknown',type:'scatter',
+        data:pts.map(s=>[s.entropy, s.aqi, s.station, s.city, s.state, s.dominant]),
+        symbolSize:5,itemStyle:{color:POL_COLOR[pol]||'#9ca3af',opacity:.7}});
+    });
+  } else if (colourBy==='label') {
+    ['Good','Satisfactory','Moderate','Poor','Very Poor','Severe'].forEach(lbl=>{
+      const pts=D.entropy_scatter.filter(s=>s.aqi_label===lbl);
+      if(!pts.length) return;
+      series.push({name:lbl,type:'scatter',data:pts.map(s=>[s.entropy,s.aqi,s.station,s.city,s.state,s.dominant]),
+        symbolSize:5,itemStyle:{color:AQI_COLOR[lbl],opacity:.7}});
+    });
+  } else {
+    const stateList=[...new Set(D.entropy_scatter.map(s=>s.state))].sort();
+    const stateColors=['#3b82f6','#ef4444','#10b981','#f59e0b','#8b5cf6','#06b6d4',
+      '#ec4899','#f97316','#22c55e','#a855f7'];
+    stateList.forEach((st,i)=>{
+      const pts=D.entropy_scatter.filter(s=>s.state===st);
+      series.push({name:st,type:'scatter',data:pts.map(s=>[s.entropy,s.aqi,s.station,s.city,s.state,s.dominant]),
+        symbolSize:5,itemStyle:{color:stateColors[i%stateColors.length],opacity:.7}});
+    });
+  }
+
+  // Quadrant lines as markLine on first series
+  if (series.length) {
+    series[0].markLine = {
+      silent:true,lineStyle:{color:'#94a3b8',type:'dashed',width:1},
+      data:[{xAxis:ENT_MED},{yAxis:AQI_P75}]
+    };
+  }
+
+  getChart('ch-entropy-scatter').setOption({
+    tooltip:{trigger:'item',formatter:p=>{
+      const [ent,aqi,st,city,state,dom]=p.data;
+      return `<strong>${st}</strong><br>${city}, ${state}<br>Calc. AQI: <strong>${aqi?.toFixed(0)}</strong><br>Entropy: ${ent?.toFixed(3)}<br>Dominant: ${dom}`;
+    }},
+    legend:{top:0,type:'scroll',textStyle:{fontSize:10}},
+    grid:{left:60,right:20,top:40,bottom:50},
+    xAxis:{name:'Pollutant Profile Entropy (diversity)',min:0,max:1.8,
+           nameTextStyle:{fontSize:11},axisLabel:{fontSize:11}},
+    yAxis:{name:'Calculated AQI',min:0,max:520,
+           nameTextStyle:{fontSize:11},axisLabel:{fontSize:11}},
+    series
+  });
+
+  // Quadrant bar
+  let hl=0,hh=0,ll=0,lh=0;
+  D.entropy_scatter.forEach(s=>{
+    const hi_aqi = s.aqi>=AQI_P75, hi_ent=s.entropy>=ENT_MED;
+    if(hi_aqi&&!hi_ent) hh++;
+    else if(hi_aqi&&hi_ent) hl++;
+    else if(!hi_aqi&&!hi_ent) ll++;
+    else lh++;
+  });
+  getChart('ch-quad-bar').setOption({
+    tooltip:{trigger:'axis'},
+    grid:{left:160,right:40,top:10,bottom:30},
+    xAxis:{type:'value'},
+    yAxis:{type:'category',data:['High-AQI / High-Diversity','High-AQI / Low-Diversity',
+                                  'Low-AQI / Low-Diversity','Low-AQI / High-Diversity']},
+    series:[{type:'bar',data:[
+      {value:hl,itemStyle:{color:'#ef4444'}},
+      {value:hh,itemStyle:{color:'#f97316'}},
+      {value:ll,itemStyle:{color:'#86efac'}},
+      {value:lh,itemStyle:{color:'#22c55e'}}],
+      label:{show:true,position:'right',fontSize:11}}]
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 6
+// ═══════════════════════════════════════════════════════════════
+function initP6() {
+  // Load Delhi by default
+  const p6sel = document.getElementById('p6-city');
+  if (p6sel.options.length) {
+    const delhiOpt = Array.from(p6sel.options).find(o=>o.value==='Delhi');
+    if (delhiOpt) p6sel.value='Delhi';
+    updateP6();
+  }
+
+  // Summary bar chart — all cities >=4 stations
+  const cities4 = D.city_variability.filter(c=>c.n>=4).sort((a,b)=>b.range-a.range).slice(0,20);
+  getChart('ch-city-cv-bar').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>{
+      const c=cities4[params[0].dataIndex];
+      return `<strong>${c.city}</strong> (${c.state})<br>Stations: ${c.n}<br>Min AQI: ${c.min}<br>Max AQI: ${c.max}<br>Range: ${c.range}<br>Std Dev: ${c.std}`;
+    }},
+    grid:{left:100,right:20,top:10,bottom:30},
+    xAxis:{type:'value',name:'AQI Range (max – min)'},
+    yAxis:{type:'category',data:cities4.map(c=>c.city),axisLabel:{fontSize:10}},
+    series:[{type:'bar',data:cities4.map(c=>c.range),
+             label:{show:true,position:'right',fontSize:10},
+             itemStyle:{color:'#3b82f6'}}]
+  });
+}
+
+function updateP6() {
+  if (!D) return;
+  const city = document.getElementById('p6-city').value;
+  if (!city) return;
+  const cv = D.city_variability.find(c=>c.city===city);
+  if (!cv) return;
+
+  document.getElementById('p6-city-title').textContent  = city;
+  document.getElementById('p6-city-title2').textContent = city;
+  document.getElementById('p6-n').textContent   = cv.n;
+  document.getElementById('p6-med').textContent  = cv.median;
+  document.getElementById('p6-range').textContent= `${cv.min} – ${cv.max}`;
+  document.getElementById('p6-std').textContent  = cv.std;
+  document.getElementById('p6-iqr').textContent  = cv.iqr;
+  document.getElementById('p6-cv').textContent   = cv.cv;
+
+  // Bar chart of station AQIs
+  const stns = cv.stations;
+  const aqiVals = stns.map(s=>s.aqi);
+  const colours = stns.map(s=>AQI_COLOR[s.aqi_label]||'#9ca3af');
+
+  getChart('ch-city-aqi').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>{
+      const s=stns[params[0].dataIndex];
+      return `<strong>${s.station}</strong><br>Calc. AQI: <strong>${s.aqi?.toFixed(0)}</strong><br>Category: ${s.aqi_label}<br>Dominant: ${s.dominant}`;
+    }},
+    grid:{left:20,right:60,top:20,bottom:70},
+    xAxis:{type:'category',data:stns.map(s=>s.station.split(',')[0]),
+           axisLabel:{rotate:45,fontSize:9,interval:0}},
+    yAxis:{type:'value',name:'Calc. AQI',nameTextStyle:{fontSize:11}},
+    series:[{type:'bar',data:aqiVals.map((v,i)=>({value:v,itemStyle:{color:colours[i]}})),
+             label:{show:false}}]
+  });
+
+  // Sub-index spider for each station
+  const stationFull = D.stations.filter(s=>s.city===city);
+  const siSeries = stationFull.map(s=>{
+    const vals = SI_KEYS.map(k=>Math.min(s[k]||0,500));
+    return {type:'radar',name:s.station.split(',')[0],
+            data:[{value:vals}],lineStyle:{width:1.5,opacity:.7},symbol:'none',
+            emphasis:{lineStyle:{width:3}}};
+  });
+
+  getChart('ch-city-si').setOption({
+    tooltip:{trigger:'item'},
+    radar:{indicator:POLLUTANTS.map(p=>({name:p,max:500})),
+           splitArea:{areaStyle:{color:['#f8fafc','#fff']}},
+           axisLine:{lineStyle:{color:'#e5e7eb'}}},
+    series: siSeries.length > 0 ? siSeries : [{type:'radar',data:[{value:Array(7).fill(0)}]}]
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PAGE 7
+// ═══════════════════════════════════════════════════════════════
+function initP7() {
+  const sc = D.state_coverage;
+  const sorted = [...sc].sort((a,b)=>b.n_stations-a.n_stations);
+
+  // Stations per state bar
+  getChart('ch-state-stations').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>{
+      const s=sorted[params[0].dataIndex];
+      return `<strong>${s.state}</strong>${s.low_sample?' ⚠ LOW SAMPLE':''}<br>Stations: ${s.n_stations}<br>Cities: ${s.n_cities}<br>Full-AQI%: ${s.full_aqi_pct}%<br>Median AQI: ${s.median_aqi?.toFixed(0)||'N/A'}`;
+    }},
+    grid:{left:140,right:40,top:10,bottom:30},
+    xAxis:{type:'value',name:'Monitoring Stations'},
+    yAxis:{type:'category',data:sorted.map(s=>s.state+(s.low_sample?' ⚠':'')),axisLabel:{fontSize:10}},
+    series:[{type:'bar',
+             data:sorted.map(s=>({value:s.n_stations,
+               itemStyle:{color:s.low_sample?'#fca5a5':s.n_stations>=40?'#1d4ed8':'#3b82f6'}})),
+             label:{show:true,position:'right',fontSize:10}}]
+  });
+
+  // AQI confidence stacked
+  const confKeys = ['FULL','PARTIAL_HIGH_CONFIDENCE','PARTIAL_LOW_CONFIDENCE','SINGLE_POLLUTANT_ONLY'];
+  const confLabels = ['Full (7)','Partial-High (4–6)','Partial-Low (1–3)','Single (1)'];
+  const confColors = ['#22c55e','#f59e0b','#f97316','#ef4444'];
+  const stateConfData = sorted.map(s => {
+    // need per-state breakdown: not in coverage data, use full/other split
+    return {state:s.state, full:s.full_aqi_pct, total:s.n_stations, lowSample:s.low_sample};
+  });
+  getChart('ch-state-conf').setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    legend:{top:0,textStyle:{fontSize:10},data:confLabels},
+    grid:{left:140,right:20,top:30,bottom:30},
+    xAxis:{type:'value',max:100,axisLabel:{formatter:'{value}%'}},
+    yAxis:{type:'category',data:sorted.map(s=>s.state),axisLabel:{fontSize:10}},
+    series:[
+      {name:'Full (7)',type:'bar',stack:'c',
+       data:sorted.map(s=>s.full_aqi_pct), itemStyle:{color:'#22c55e'},label:{show:false}},
+      {name:'Partial/Low',type:'bar',stack:'c',
+       data:sorted.map(s=>+(100-s.full_aqi_pct).toFixed(1)), itemStyle:{color:'#f59e0b'},label:{show:false}},
+    ]
+  });
+
+  // Pollutant NA bar
+  const pol = D.national.pol_na_national;
+  const polNames = Object.keys(pol);
+  const polPcts  = polNames.map(p=>pol[p].pct);
+  getChart('ch-pol-na').setOption({
+    tooltip:{trigger:'axis',formatter:params=>{
+      const p=polNames[params[0].dataIndex];
+      return `${p}: ${pol[p].na} of ${pol[p].total} stations missing (${pol[p].pct}%)`;
+    }},
+    grid:{left:60,right:60,top:10,bottom:40},
+    xAxis:{type:'category',data:polNames,axisLabel:{fontSize:11}},
+    yAxis:{type:'value',name:'% Stations Missing',max:25},
+    series:[{type:'bar',data:polPcts.map((v,i)=>({value:v,itemStyle:{color:POL_COLOR[polNames[i]]}})),
+             label:{show:true,position:'top',formatter:'{c}%',fontSize:11}}]
+  });
+
+  // Suspicious zeros table
+  const zbody = document.getElementById('p7-zero-body');
+  D.suspicious_zeros.forEach(z=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${z.station}</td>
+      <td>${z.city}</td><td>${z.state}</td>
+      <td>${z.zero_pollutants.join(', ')}</td>`;
+    zbody.appendChild(tr);
+  });
+
+  // Sensor anomaly table
+  const abody = document.getElementById('p7-anomaly-body');
+  D.sensor_anomalies.forEach(a=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.station}</td>
+      <td>${a.co?.toFixed(0)||'N/A'}</td><td>min=max=avg (flat)</td>
+      <td>${a.aqi?.toFixed(0)||'N/A'}</td>`;
+    abody.appendChild(tr);
+  });
+}
+</script>
+</body>
+</html>

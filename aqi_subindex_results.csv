@@ -1,0 +1,502 @@
+station,city,state,calculated_AQI,aqi_label,aqi_category,dominant_pollutant_by_AQI,dominant_AQI_subindex,SI_PM2.5,SI_PM10,SI_SO2,SI_NO2,SI_CO,SI_NH3,SI_OZONE
+"Police Line, Saharsa - BSPCB",Saharsa,Bihar,82.03,Satisfactory,FULL,PM2.5,82.03,82.03,53.94,18.75,8.75,1.9,1.0,9.0
+"DM Office_Kasipur, Samastipur - BSPCB",Samastipur,Bihar,143.9,Moderate,FULL,PM2.5,143.9,143.9,47.0,15.0,10.0,0.3,0.25,6.0
+"Dada Peer, Sasaram - BSPCB",Sasaram,Bihar,28.33,Good,PARTIAL_LOW_CONFIDENCE,PM2.5,28.33,28.33,15.0,,,,,
+"Chitragupta Nagar, Siwan - BSPCB",Siwan,Bihar,73.87,Satisfactory,FULL,PM2.5,73.87,73.87,53.94,7.5,2.5,3.25,0.25,7.0
+"Sector-25, Chandigarh - CPCC",Chandigarh,Chandigarh,63.74,Satisfactory,FULL,PM10,63.74,60.8,63.74,7.5,22.5,1.0,1.75,19.0
+"Sector-53, Chandigarh - CPCC",Chandigarh,Chandigarh,40.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,40.0,,,,,1.4,,40.0
+"Sector 22, Chandigarh - CPCC",Chandigarh,Chandigarh,50.0,Good,FULL,PM2.5,50.0,50.0,36.0,6.25,13.75,1.7,5.75,31.0
+"Hathkhoj, Bhilai - CECB",Bhilai,Chhattisgarh,48.33,Good,FULL,PM2.5,48.33,48.33,31.0,15.0,16.25,0.75,1.75,12.0
+"Civic Center, Bhilai - Bhilai Steel Plant",Bhilai,Chhattisgarh,20.0,Good,FULL,PM10,20.0,16.67,20.0,12.5,20.0,1.0,0.25,12.0
+"32Bungalows, Bhilai - CECB",Bhilai,Chhattisgarh,27.0,Good,FULL,PM10,27.0,23.33,27.0,13.75,18.75,0.6,1.0,10.0
+"Mangala, Bilaspur - NTPC",Bilaspur,Chhattisgarh,43.33,Good,PARTIAL_HIGH_CONFIDENCE,PM2.5,43.33,43.33,34.0,20.0,26.25,1.35,,
+"D M Colony, Bihar Sharif - BSPCB",Bihar Sharif,Bihar,43.33,Good,FULL,PM2.5,43.33,43.33,39.0,15.0,11.25,0.6,0.75,2.0
+"Darshan Nagar, Chhapra - BSPCB",Chhapra,Bihar,4.45,Good,PARTIAL_LOW_CONFIDENCE,CO,4.45,,,,,4.45,,2.0
+"Collectorate, Gaya - BSPCB",Gaya,Bihar,29.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,29.0,,,,,0.6,,29.0
+"SFTI Kusdihra, Gaya - BSPCB",Gaya,Bihar,55.9,Satisfactory,FULL,PM2.5,55.9,55.9,39.0,10.0,31.25,1.1,1.5,16.0
+"Industrial Area, Hajipur - BSPCB",Hajipur,Bihar,83.67,Satisfactory,FULL,PM2.5,83.67,83.67,70.6,5.0,23.75,1.7,3.0,28.0
+"Mirchaibari, Katihar - BSPCB",Katihar,Bihar,48.33,Good,FULL,PM2.5,48.33,48.33,29.0,31.25,11.25,4.5,0.25,26.0
+"Forest Rest House, Manguraha - BSPCB",Manguraha,Bihar,83.34,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,83.34,,83.34,25.0,23.75,1.45,0.25,41.0
+"Gandak Colony, Motihari - BSPCB",Motihari,Bihar,52.96,Satisfactory,PARTIAL_HIGH_CONFIDENCE,OZONE,52.96,,,3.75,3.75,0.6,0.25,52.96
+"Town Hall, Munger - BSPCB",Munger,Bihar,115.56,Moderate,FULL,OZONE,115.56,68.97,59.82,93.88,15.0,1.9,0.75,115.56
+"Nehru Nagar, Delhi - DPCC",Delhi,Delhi,352.78,Very Poor,FULL,PM2.5,352.78,352.78,141.26,17.5,52.23,2.55,2.0,7.0
+"Patparganj, Delhi - DPCC",Delhi,Delhi,323.08,Very Poor,FULL,PM2.5,323.08,323.08,149.84,15.0,52.23,2.25,2.75,13.0
+"Jawaharlal Nehru Stadium, Delhi - DPCC",Delhi,Delhi,311.66,Very Poor,FULL,PM2.5,311.66,311.66,118.82,30.0,48.75,1.9,2.0,11.0
+"Mundka, Delhi - DPCC",Delhi,Delhi,323.85,Very Poor,FULL,PM2.5,323.85,323.85,135.98,20.0,116.84,2.8,1.75,5.0
+"NSUT Jaffarpur, Delhi - DPCC",Delhi,Delhi,331.46,Very Poor,FULL,PM2.5,331.46,331.46,126.74,2.5,10.0,2.5,1.25,11.0
+"Ashok Vihar, Delhi - DPCC",Delhi,Delhi,286.8,Poor,FULL,PM2.5,286.8,286.8,122.12,57.12,43.75,5.25,1.75,11.0
+"Anand Vihar, Delhi - DPCC",Delhi,Delhi,326.13,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,326.13,326.13,,33.75,32.5,4.7,0.75,16.0
+"Punjabi Bagh, Delhi - DPCC",Delhi,Delhi,327.65,Very Poor,FULL,PM2.5,327.65,327.65,135.32,31.25,60.8,2.15,1.25,28.0
+"Dwarka-Sector 8, Delhi - DPCC",Delhi,Delhi,290.1,Poor,FULL,PM2.5,290.1,290.1,147.86,11.25,64.47,0.85,1.75,19.0
+"Dr. Karni Singh Shooting Range, Delhi - DPCC",Delhi,Delhi,283.5,Poor,FULL,PM2.5,283.5,283.5,132.68,10.0,31.25,5.4,1.75,18.0
+"Narela, Delhi - DPCC",Delhi,Delhi,318.52,Very Poor,FULL,PM2.5,318.52,318.52,137.96,15.0,32.5,2.0,2.25,22.0
+"Cantonment Area, Delhi - DPCC",Delhi,Delhi,79.42,Satisfactory,FULL,PM10,79.42,64.07,79.42,3.75,20.0,4.05,0.5,6.0
+"Major Dhyan Chand National Stadium, Delhi - DPCC",Delhi,Delhi,176.9,Moderate,FULL,PM2.5,176.9,176.9,118.16,36.25,71.83,3.7,1.25,14.0
+"Bawana, Delhi - DPCC",Delhi,Delhi,352.78,Very Poor,FULL,PM2.5,352.78,352.78,131.36,36.25,23.75,2.45,2.0,16.0
+"Okhla Phase-2, Delhi - DPCC",Delhi,Delhi,315.47,Very Poor,FULL,PM2.5,315.47,315.47,139.28,13.75,53.45,4.0,1.5,12.0
+"Rohini, Delhi - DPCC",Delhi,Delhi,338.32,Very Poor,FULL,PM2.5,338.32,338.32,134.66,16.25,7.5,2.8,1.0,17.0
+"Vivek Vihar, Delhi - DPCC",Delhi,Delhi,311.66,Very Poor,FULL,PM2.5,311.66,311.66,130.7,15.0,63.25,3.75,1.75,17.0
+"IHBAS, Dilshad Garden, Delhi - CPCB",Delhi,Delhi,328.42,Very Poor,FULL,PM2.5,328.42,328.42,105.62,17.5,69.38,1.0,0.75,11.0
+"MIT-Daudpur Kothi, Muzaffarpur - BSPCB",Muzaffarpur,Bihar,43.33,Good,FULL,PM2.5,43.33,43.33,33.0,20.0,5.0,0.9,0.25,30.0
+"Buddha Colony, Muzaffarpur - BSPCB",Muzaffarpur,Bihar,54.27,Satisfactory,FULL,PM2.5,54.27,54.27,42.0,6.25,18.75,0.75,2.75,21.0
+"Samanpura, Patna - BSPCB",Patna,Bihar,160.4,Moderate,FULL,PM2.5,160.4,160.4,74.52,8.75,18.75,4.2,1.5,45.0
+"Muradpur, Patna - BSPCB",Patna,Bihar,59.17,Satisfactory,FULL,PM2.5,59.17,59.17,42.0,10.0,3.75,2.35,1.25,22.0
+"Govt. High School Shikarpur, Patna - BSPCB",Patna,Bihar,91.18,Satisfactory,FULL,PM10,91.18,68.97,91.18,16.25,7.5,4.15,1.5,45.0
+"IGSC Planetarium Complex, Patna - BSPCB",Patna,Bihar,83.67,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,83.67,83.67,,17.5,5.0,0.45,,38.0
+"Rajbansi Nagar, Patna - BSPCB",Patna,Bihar,40.0,Good,FULL,PM2.5,40.0,40.0,36.0,12.5,38.75,1.95,0.75,28.0
+"Mariam Nagar, Purnia - BSPCB",Purnia,Bihar,22.5,Good,PARTIAL_HIGH_CONFIDENCE,NO2,22.5,,,20.0,22.5,2.55,1.0,22.0
+"Dangi Tola, Rajgir - BSPCB",Rajgir,Bihar,38.33,Good,FULL,PM2.5,38.33,38.33,19.0,3.75,17.5,2.15,0.75,15.0
+"Rampur, Korba - CECB",Korba,Chhattisgarh,18.33,Good,FULL,PM2.5,18.33,18.33,12.0,5.0,15.0,0.55,0.25,12.0
+"OP Jindal School, Kunjemura - CECB",Kunjemura,Chhattisgarh,22.0,Good,FULL,PM10,22.0,15.0,22.0,12.5,15.0,0.8,0.5,4.0
+"Govt. Higher Secondary School, Milupara - CECB",Milupara,Chhattisgarh,20.0,Good,FULL,PM10,20.0,15.0,20.0,16.25,11.25,0.75,0.25,9.0
+"Krishak Nagar, Raipur - CECB",Raipur,Chhattisgarh,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,62.76,17.5,17.5,1.4,0.5,5.0
+"Bhatagaon New ISBT, Raipur - CECB",Raipur,Chhattisgarh,40.0,Good,FULL,PM10,40.0,25.0,40.0,3.75,20.0,1.75,0.5,1.0
+"AIIMS, Raipur - CECB",Raipur,Chhattisgarh,70.6,Satisfactory,FULL,PM2.5,70.6,70.6,56.88,5.0,11.25,1.3,0.5,21.0
+"Siltara Phase-II, Raipur - CECB",Raipur,Chhattisgarh,75.5,Satisfactory,FULL,PM10,75.5,62.43,75.5,3.75,23.75,1.0,0.5,12.0
+"OP Jindal Industrial Park, Tumidih - CECB",Tumidih,Chhattisgarh,20.0,Good,FULL,PM2.5,20.0,20.0,15.0,6.25,18.75,0.65,0.5,8.0
+"Sita Rama Nagar, Kurnool - APPCB",Kurnool,Andhra Pradesh,62.43,Satisfactory,FULL,PM2.5,62.43,62.43,36.0,8.75,36.25,0.45,1.25,27.0
+"Srinivas Nagar Colony, Machilipatnam - APPCB",Machilipatnam,Andhra Pradesh,107.6,Moderate,FULL,PM2.5,107.6,107.6,64.72,13.75,40.0,1.0,1.0,18.0
+"Ambedkar Nagar, Nellore - APPCB",Nellore,Andhra Pradesh,98.37,Satisfactory,FULL,PM2.5,98.37,98.37,60.8,20.0,35.0,1.8,1.5,24.0
+"Anand Kala Kshetram, Rajamahendravaram - APPCB",Rajamahendravaram,Andhra Pradesh,34.0,Good,PARTIAL_HIGH_CONFIDENCE,PM10,34.0,,34.0,7.5,6.25,0.7,0.75,26.0
+"Toll Gate, Tirumala - APPCB",Tirumala,Andhra Pradesh,68.15,Satisfactory,FULL,NO2,68.15,33.33,27.0,7.5,68.15,0.8,0.75,27.0
+"Vaikuntapuram, Tirupati - APPCB",Tirupati,Andhra Pradesh,33.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,33.0,,,,,1.0,,33.0
+"HB Colony, Vijayawada - APPCB",Vijayawada,Andhra Pradesh,95.1,Satisfactory,FULL,PM2.5,95.1,95.1,62.76,15.0,27.5,2.1,1.25,18.0
+"Rajiv Gandhi Park, Vijayawada - APPCB",Vijayawada,Andhra Pradesh,18.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,18.0,,,,,1.4,,18.0
+"Naharlagun, Naharlagun - APSPCB",Naharlagun,Arunachal Pradesh,55.9,Satisfactory,FULL,PM2.5,55.9,55.9,39.0,15.0,11.25,0.4,0.25,7.0
+"Central Academy for SFS, Byrnihat - PCBA",Byrnihat,Assam,180.2,Moderate,FULL,PM2.5,180.2,180.2,77.46,40.0,10.0,2.95,1.0,17.0
+"LGBI Airport, Guwahati - PCBA",Guwahati,Assam,90.2,Satisfactory,FULL,PM2.5,90.2,90.2,43.0,13.75,18.75,1.2,1.25,12.0
+"Railway Colony, Guwahati - PCBA",Guwahati,Assam,52.63,Satisfactory,FULL,PM2.5,52.63,52.63,33.0,7.5,3.75,0.35,0.25,11.0
+"Christianpatty, Nagaon - PCBA",Nagaon,Assam,95.1,Satisfactory,FULL,PM2.5,95.1,95.1,50.0,13.75,1.25,0.7,1.0,7.0
+"Bata Chowk, Nalbari - PCBA",Nalbari,Assam,137.3,Moderate,FULL,PM2.5,137.3,137.3,52.96,10.0,26.25,1.1,1.5,19.0
+"Tarapur, Silchar - PCBA",Silchar,Assam,46.67,Good,FULL,PM2.5,46.67,46.67,39.0,5.0,22.5,1.65,0.25,7.0
+"Girls College, Sivasagar - PCBA",Sivasagar,Assam,37.0,Good,FULL,PM10,37.0,36.67,37.0,10.0,15.0,0.9,0.5,11.0
+"Kharahiya Basti, Araria - BSPCB",Araria,Bihar,90.2,Satisfactory,FULL,PM2.5,90.2,90.2,55.9,25.0,17.5,1.25,1.0,41.0
+"New DM Office, Arrah - BSPCB",Arrah,Bihar,59.17,Satisfactory,FULL,PM2.5,59.17,59.17,42.0,6.25,8.75,2.7,0.5,7.0
+"Lohiyanagar, Begusarai - BSPCB",Begusarai,Bihar,55.9,Satisfactory,FULL,PM2.5,55.9,55.9,27.0,17.5,11.25,2.9,0.75,46.0
+"Kamalnath Nagar, Bettiah - BSPCB",Bettiah,Bihar,38.33,Good,FULL,PM2.5,38.33,38.33,21.0,17.5,33.75,1.55,0.75,13.0
+"DM Office_Kachari Chowk, Bhagalpur - BSPCB",Bhagalpur,Bihar,70.6,Satisfactory,FULL,PM2.5,70.6,70.6,69.62,27.5,26.25,1.4,1.0,18.0
+"Mayaganj, Bhagalpur - BSPCB",Bhagalpur,Bihar,77.13,Satisfactory,FULL,PM2.5,77.13,77.13,42.0,68.15,27.5,3.5,1.0,19.0
+"Gulzarpet, Anantapur - APPCB",Anantapur,Andhra Pradesh,22.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,22.0,,,,,1.55,,22.0
+"Gangineni Cheruvu, Chittoor - APPCB",Chittoor,Andhra Pradesh,36.25,Good,PARTIAL_HIGH_CONFIDENCE,NO2,36.25,,,25.0,36.25,0.75,2.0,29.0
+"District Court, Eluru - APPCB",Eluru,Andhra Pradesh,91.83,Satisfactory,FULL,PM2.5,91.83,91.83,57.86,16.25,5.0,0.8,1.0,13.0
+"Rajendra Nagar North, Guntur - APPCB",Guntur,Andhra Pradesh,90.2,Satisfactory,FULL,PM2.5,90.2,90.2,57.86,16.25,47.5,0.95,2.0,19.0
+"Yerramukkapalli, Kadapa - APPCB",Kadapa,Andhra Pradesh,150.5,Moderate,FULL,PM2.5,150.5,150.5,65.7,18.75,25.0,1.2,1.0,37.0
+"Rama Rao Peta, Kakinada - APPCB",Kakinada,Andhra Pradesh,57.53,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,57.53,57.53,45.0,13.75,33.75,,1.5,33.0
+"Sadanand Nagar, Mehsana - Nexteng Enviro",Mehsana,Gujarat,93.14,Satisfactory,FULL,PM10,93.14,82.03,93.14,18.75,8.75,2.2,0.0,10.0
+"GIDC, Nandesari - Nandesari Ind. Association",Nandesari,Gujarat,173.6,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,173.6,173.6,82.36,3.75,40.0,2.25,,
+"Mavdi, Rajkot - Nexteng Enviro",Rajkot,Gujarat,134.0,Moderate,FULL,PM2.5,134.0,134.0,85.3,23.75,15.0,1.5,0.25,10.0
+"Science Center, Surat - SMC",Surat,Gujarat,107.6,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,107.6,107.6,54.92,21.25,7.5,3.2,,
+"Katargam, Surat - Nexteng Enviro",Surat,Gujarat,85.3,Satisfactory,FULL,PM2.5,85.3,85.3,68.64,13.75,7.5,1.6,0.25,16.0
+"Bapunagar, Vadodara - Nexteng Enviro",Vadodara,Gujarat,83.67,Satisfactory,FULL,PM2.5,83.67,83.67,81.38,11.25,16.25,4.35,0.5,6.0
+"Phase-1 GIDC, Vapi - GPCB",Vapi,Gujarat,75.5,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,75.5,75.5,61.78,22.5,25.0,,1.0,6.0
+"Patti Mehar, Ambala - HSPCB",Ambala,Haryana,240.6,Poor,FULL,PM2.5,240.6,240.6,118.82,59.58,7.5,1.6,1.5,23.0
+"Arya Nagar, Bahadurgarh - HSPCB",Bahadurgarh,Haryana,327.65,Very Poor,FULL,PM2.5,327.65,327.65,117.5,8.75,26.25,1.35,2.0,18.0
+"Nathu Colony, Ballabgarh - HSPCB",Ballabgarh,Haryana,134.0,Moderate,FULL,PM2.5,134.0,134.0,82.36,3.75,25.0,1.1,1.0,19.0
+"H.B. Colony, Bhiwani - HSPCB",Bhiwani,Haryana,267.0,Poor,FULL,PM2.5,267.0,267.0,92.16,16.25,22.5,2.4,2.75,20.0
+"Municipal Corporation Office, Dharuhera -  HSPCB",Dharuhera,Haryana,308.62,Very Poor,FULL,PM2.5,308.62,308.62,102.98,11.25,25.0,2.35,1.5,22.0
+"Sector 30, Faridabad - HSPCB",Faridabad,Haryana,100.0,Satisfactory,FULL,PM10,100.0,98.37,100.0,2.5,46.25,1.3,1.75,18.0
+"Sector 11, Faridabad - HSPCB",Faridabad,Haryana,73.87,Satisfactory,FULL,PM2.5,73.87,73.87,53.94,7.5,38.75,3.2,1.5,6.0
+"New Industrial Town, Faridabad - HSPCB",Faridabad,Haryana,14.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,14.0,,,,,1.4,,14.0
+"Huda Sector, Fatehabad - HSPCB",Fatehabad,Haryana,114.2,Moderate,FULL,PM2.5,114.2,114.2,89.22,33.75,23.75,2.9,3.5,33.0
+"Sector-51, Gurugram - HSPCB",Gurugram,Haryana,320.04,Very Poor,FULL,PM2.5,320.04,320.04,130.04,11.25,30.0,1.25,2.0,27.0
+"Vikas Sadan, Gurugram - HSPCB",Gurugram,Haryana,488.58,Severe,PARTIAL_HIGH_CONFIDENCE,PM2.5,488.58,488.58,215.85,22.5,8.75,2.95,,11.0
+"Teri Gram, Gurugram - HSPCB",Gurugram,Haryana,358.12,Very Poor,FULL,PM2.5,358.12,358.12,124.76,16.25,43.75,1.8,2.75,20.0
+"Jayanagar 5th Block, Bengaluru - KSPCB",Bengaluru,Karnataka,67.33,Satisfactory,FULL,PM2.5,67.33,67.33,51.98,13.75,15.0,0.45,0.0,25.0
+"Bapuji Nagar, Bengaluru - KSPCB",Bengaluru,Karnataka,66.68,Satisfactory,FULL,PM10,66.68,64.07,66.68,27.5,28.75,1.15,0.75,23.0
+"BTM Layout, Bengaluru - CPCB",Bengaluru,Karnataka,92.16,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,92.16,48.33,92.16,18.75,30.0,,1.25,21.0
+"Silk Board, Bengaluru - KSPCB",Bengaluru,Karnataka,112.88,Moderate,FULL,PM10,112.88,73.87,112.88,25.0,10.0,2.2,0.25,15.0
+"Urban, Chamarajanagar - KSPCB",Chamarajanagar,Karnataka,48.33,Good,FULL,PM2.5,48.33,48.33,44.0,5.0,35.0,0.9,0.5,26.0
+"Chikkaballapur Rural, Chikkaballapur - KSPCB",Chikkaballapur,Karnataka,46.0,Good,FULL,PM10,46.0,43.33,46.0,22.5,5.0,0.45,0.25,19.0
+"Kalyana Nagara, Chikkamagaluru - KSPCB",Chikkamagaluru,Karnataka,32.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,32.0,,,,,5.7,,32.0
+"Kalabhavan, Dharwad - KSPCB",Dharwad,Karnataka,31.25,Good,PARTIAL_HIGH_CONFIDENCE,NO2,31.25,,,10.0,31.25,1.75,1.5,24.0
+"Lingaraj Nagar, Hubballi - KSPCB",Hubballi,Karnataka,68.97,Satisfactory,FULL,PM2.5,68.97,68.97,56.88,2.5,11.25,0.7,0.5,18.0
+"Mahatma Basaveswar Colony, Kalaburgi - KSPCB",Kalaburagi,Karnataka,35.0,Good,FULL,PM2.5,35.0,35.0,28.0,3.75,16.25,1.65,0.5,14.0
+"Lal Bahadur Shastri Nagar, Kalaburagi - KSPCB",Kalaburagi,Karnataka,20.0,Good,SINGLE_POLLUTANT_ONLY,OZONE,20.0,,,,,,,20.0
+"Kadri, Mangalore - KSPCB",Mangalore,Karnataka,72.23,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,72.23,72.23,45.0,,5.0,,0.5,35.0
+"Hebbal 1st Stage, Mysuru - KSPCB",Mysuru,Karnataka,73.54,Satisfactory,FULL,PM10,73.54,64.07,73.54,5.0,22.5,0.25,1.0,9.0
+"Vijay Nagar, Ramanagara - KSPCB",Ramanagara,Karnataka,54.92,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,54.92,54.27,54.92,22.5,,1.45,,22.0
+"Vinoba Nagara, Shivamogga - KSPCB",Shivamogga,Karnataka,51.98,Satisfactory,FULL,OZONE,51.98,33.33,33.0,7.5,32.5,1.2,0.5,51.98
+"Brahmagiri, Udupi - KSPCB",Udupi,Karnataka,52.63,Satisfactory,FULL,PM2.5,52.63,52.63,37.0,10.0,13.75,2.9,0.5,15.0
+"Udyogamandal, Eloor - Kerala PCB",Eloor,Kerala,207.6,Poor,FULL,PM2.5,207.6,207.6,67.66,2.5,7.5,5.4,0.0,29.0
+"Thavakkara, Kannur - Kerala PCB",Kannur,Kerala,28.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,28.0,,,,,1.05,,28.0
+"NSIT Dwarka, Delhi - CPCB",Delhi,Delhi,102.32,Moderate,FULL,PM10,102.32,54.27,102.32,17.5,43.75,1.7,2.25,67.66
+"Aya Nagar, Delhi - IITM",Delhi,Delhi,293.4,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,293.4,293.4,109.58,,16.25,3.5,,34.0
+"CRRI Mathura Road, Delhi - IITM",Delhi,Delhi,325.37,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,325.37,325.37,180.2,,35.0,4.4,,23.0
+"Burari Crossing, Delhi - IITM",Delhi,Delhi,302.52,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,302.52,302.52,121.46,,54.67,2.5,,51.98
+"IMD Lodhi Road, Delhi - IITM",Delhi,Delhi,186.8,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,186.8,186.8,121.46,,28.75,1.2,,54.92
+"JNU, Delhi - DPCC",Delhi,Delhi,283.5,Poor,FULL,PM2.5,283.5,283.5,106.28,7.5,47.5,4.0,0.5,17.0
+"ITO, Delhi - CPCB",Delhi,Delhi,186.8,Moderate,FULL,PM2.5,186.8,186.8,112.22,27.5,75.5,2.75,1.0,21.0
+"R K Puram, Delhi - DPCC",Delhi,Delhi,316.99,Very Poor,FULL,PM2.5,316.99,316.99,142.58,37.5,65.7,3.05,1.75,14.0
+"North Campus, DU, Delhi - IITM",Delhi,Delhi,342.88,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,342.88,342.88,143.9,,161.39,3.85,,57.86
+"Alipur, Delhi - DPCC",Delhi,Delhi,309.38,Very Poor,FULL,PM2.5,309.38,309.38,132.02,11.25,70.6,1.9,1.5,10.0
+"Amity University, Panchgaon - IITM",Panchgaon,Haryana,74.28,Satisfactory,PARTIAL_HIGH_CONFIDENCE,NO2,74.28,5.0,19.0,18.75,74.28,,1.5,11.0
+"MD University, Rohtak - HSPCB",Rohtak,Haryana,193.4,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,193.4,193.4,98.04,12.5,12.5,1.8,,18.0
+"F-Block, Sirsa - HSPCB",Sirsa,Haryana,111.56,Moderate,FULL,PM10,111.56,93.47,111.56,47.5,25.0,4.9,3.5,43.0
+"Murthal, Sonipat - HSPCB",Sonipat,Haryana,147.2,Moderate,FULL,PM2.5,147.2,147.2,80.4,82.85,8.75,1.05,2.25,51.98
+"Gobind Pura, Yamuna Nagar - HSPCB",Yamuna Nagar,Haryana,333.75,Very Poor,FULL,PM2.5,333.75,333.75,114.86,15.0,20.0,2.3,1.0,42.0
+"HIMUDA Complex Phase-1, Baddi - HPPCB",Baddi,Himachal Pradesh,193.4,Moderate,FULL,PM2.5,193.4,193.4,97.06,1.25,15.0,1.2,0.5,66.68
+"Rajbagh, Srinagar - JKPCC",Srinagar,Jammu and Kashmir,54.27,Satisfactory,FULL,PM2.5,54.27,54.27,51.98,3.75,23.75,0.6,2.25,1.0
+"Sardar Patel Nagar, Dhanbad - JSPCB",Dhanbad,Jharkhand,120.8,Moderate,PARTIAL_LOW_CONFIDENCE,NO2,120.8,,,,120.8,0.7,,26.0
+"Rakhial, Ahmedabad - IITM",Ahmedabad,Gujarat,345.17,Very Poor,FULL,PM2.5,345.17,345.17,118.82,53.45,129.71,0.45,6.5,5.0
+"SAC ISRO Satellite, Ahmedabad - IITM",Ahmedabad,Gujarat,93.47,Satisfactory,FULL,PM2.5,93.47,93.47,93.14,5.0,31.25,1.5,0.5,3.0
+"Gyaspur, Ahmedabad - IITM",Ahmedabad,Gujarat,157.1,Moderate,FULL,PM2.5,157.1,157.1,114.2,16.25,26.25,0.8,0.5,9.0
+"Raikhad, Ahmedabad - IITM",Ahmedabad,Gujarat,147.2,Moderate,FULL,PM2.5,147.2,147.2,92.16,6.25,17.5,1.65,0.5,11.0
+"Maninagar, Ahmedabad - GPCB",Ahmedabad,Gujarat,270.3,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,270.3,270.3,88.24,32.5,28.75,0.05,,53.94
+"SAC ISRO Bopal, Ahmedabad - IITM",Ahmedabad,Gujarat,230.7,Poor,FULL,PM2.5,230.7,230.7,92.16,2.5,22.5,1.05,0.75,15.0
+"Vidhyanagar, Bhavnagar - Nexteng Enviro",Bhavnagar,Gujarat,85.3,Satisfactory,FULL,PM2.5,85.3,85.3,65.7,10.0,46.25,3.35,1.25,4.0
+"Sector-10, Gandhinagar - GPCB",Gandhinagar,Gujarat,150.5,Moderate,FULL,PM2.5,150.5,150.5,102.98,7.5,11.25,0.85,0.25,6.0
+"GIFT City, Gandhinagar - IITM",Gandhinagar,Gujarat,313.18,Very Poor,FULL,PM2.5,313.18,313.18,130.04,7.5,41.25,0.95,1.5,14.0
+"Shadipur, Delhi - CPCB",Delhi,Delhi,117.5,Moderate,FULL,PM2.5,117.5,117.5,115.52,8.75,87.75,2.45,1.5,11.0
+"Mandir Marg, Delhi - DPCC",Delhi,Delhi,214.2,Poor,FULL,PM2.5,214.2,214.2,122.12,25.0,33.75,2.0,2.75,22.0
+"Pusa, Delhi - DPCC",Delhi,Delhi,293.4,Poor,FULL,PM2.5,293.4,293.4,122.78,12.5,60.8,4.05,1.0,7.0
+"Sirifort, Delhi - CPCB",Delhi,Delhi,323.85,Very Poor,FULL,PM2.5,323.85,323.85,147.2,32.5,37.5,2.65,1.5,15.0
+"Pusa, Delhi - IITM",Delhi,Delhi,332.98,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,332.98,332.98,117.5,,31.25,2.15,,52.96
+"IIT Delhi, Delhi - IITM",Delhi,Delhi,41.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,41.0,,,,,1.6,,41.0
+"IGNOU_Maidan Garhi, Delhi - DPCC",Delhi,Delhi,116.84,Moderate,FULL,PM10,116.84,52.63,116.84,8.75,42.5,4.15,0.25,7.0
+"Commonwealth Sports Complex, Delhi - DPCC",Delhi,Delhi,326.89,Very Poor,FULL,PM2.5,326.89,326.89,118.82,16.25,38.75,4.4,0.5,44.0
+"Police Lines, Jind - HSPCB",Jind,Haryana,361.92,Very Poor,FULL,PM2.5,361.92,361.92,97.06,35.0,16.25,0.3,1.25,10.0
+"Rishi Nagar, Kaithal - HSPCB",Kaithal,Haryana,224.1,Poor,FULL,PM2.5,224.1,224.1,108.92,38.75,27.5,1.05,1.25,76.48
+"Sector-7, Kurukshetra - HSPCB",Kurukshetra,Haryana,210.9,Poor,FULL,PM2.5,210.9,210.9,103.64,10.0,8.75,1.45,1.25,11.0
+"General Hospital, Mandikhera(Nuh) - HSPCB",Mandikhera,Haryana,49.0,Good,FULL,PM10,49.0,40.0,49.0,27.5,42.5,3.1,3.5,26.0
+"Sector-2 IMT, Manesar - HSPCB",Manesar,Haryana,345.17,Very Poor,FULL,PM2.5,345.17,345.17,110.9,17.5,37.5,1.7,2.75,22.0
+"Shastri Nagar, Narnaul - HSPCB",Narnaul,Haryana,237.3,Poor,FULL,PM2.5,237.3,237.3,110.24,5.0,30.0,1.35,0.5,27.0
+"Shyam Nagar, Palwal - HSPCB",Palwal,Haryana,100.0,Satisfactory,FULL,PM2.5,100.0,100.0,61.78,18.75,30.0,2.15,1.5,10.0
+"Deen Dayal Nagar, Gwalior - MPPCB",Gwalior,Madhya Pradesh,104.3,Moderate,FULL,PM2.5,104.3,104.3,103.64,13.75,65.7,2.75,1.25,36.0
+"Regional Park, Indore - IMC",Indore,Madhya Pradesh,68.15,Satisfactory,PARTIAL_HIGH_CONFIDENCE,SO2,68.15,67.33,43.0,68.15,,0.2,,5.0
+"Chhoti Gwaltoli, Indore - MPPCB",Indore,Madhya Pradesh,214.2,Poor,FULL,PM2.5,214.2,214.2,101.66,26.25,90.2,1.7,1.75,57.86
+"Airport Area, Indore - IMC",Indore,Madhya Pradesh,71.58,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,71.58,,71.58,,25.0,2.15,0.0,9.0
+"Residency Area, Indore - IMC",Indore,Madhya Pradesh,77.13,Satisfactory,FULL,PM2.5,77.13,77.13,53.94,3.75,5.0,0.7,0.0,7.0
+"Maguda Nagar, Indore - IMC",Indore,Madhya Pradesh,77.13,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,77.13,77.13,,22.5,2.5,2.05,,11.0
+"Marhatal, Jabalpur - MPPCB",Jabalpur,Madhya Pradesh,40.0,Good,FULL,PM2.5,40.0,40.0,24.0,10.0,23.75,5.45,1.0,2.0
+"Govindh Bhavan Colony, Jabalpur - JMC",Jabalpur,Madhya Pradesh,52.63,Satisfactory,FULL,PM2.5,52.63,52.63,33.0,2.5,15.0,2.4,1.0,26.0
+"Suhagi, Jabalpur - JMC",Jabalpur,Madhya Pradesh,77.46,Satisfactory,FULL,PM10,77.46,75.5,77.46,8.75,69.38,2.25,1.5,17.0
+"Gole Bazar, Katni - MPPCB",Katni,Madhya Pradesh,127.4,Moderate,FULL,PM2.5,127.4,127.4,78.44,27.5,17.5,1.8,0.25,27.0
+"Sahilara, Maihar - KJS Cements",Maihar,Madhya Pradesh,1.35,Good,SINGLE_POLLUTANT_ONLY,CO,1.35,,,,,1.35,,
+"Sector-D Industrial Area, Mandideep - MPPCB",Mandideep,Madhya Pradesh,293.4,Poor,FULL,PM2.5,293.4,293.4,124.76,110.24,104.96,1.8,0.5,36.0
+"Worli, Mumbai - MPCB",Mumbai,Maharashtra,52.63,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,52.63,52.63,45.0,6.25,20.0,2.3,,8.0
+"Mazgaon, Mumbai - IITM",Mumbai,Maharashtra,48.33,Good,FULL,PM2.5,48.33,48.33,44.0,8.75,43.75,2.0,1.25,16.0
+"Ghatkopar, Mumbai - BMC",Mumbai,Maharashtra,107.6,Moderate,FULL,PM2.5,107.6,107.6,63.74,2.5,10.0,1.2,1.75,3.0
+"Mindspace-Malad West, Mumbai - MPCB",Mumbai,Maharashtra,43.0,Good,FULL,PM10,43.0,40.0,43.0,5.0,22.5,0.75,2.0,18.0
+"Chembur, Mumbai - MPCB",Mumbai,Maharashtra,54.27,Satisfactory,FULL,PM2.5,54.27,54.27,43.0,2.5,15.0,1.85,1.5,9.0
+"Borivali East, Mumbai - MPCB",Mumbai,Maharashtra,67.33,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,67.33,67.33,60.8,23.75,12.5,0.4,0.5,
+"Deonar, Mumbai - IITM",Mumbai,Maharashtra,62.76,Satisfactory,FULL,PM10,62.76,60.8,62.76,2.5,43.75,1.75,1.5,12.0
+"Malad West, Mumbai - IITM",Mumbai,Maharashtra,46.67,Good,FULL,PM2.5,46.67,46.67,44.0,10.0,16.25,1.75,0.5,9.0
+"Ram Nagar, Nagpur - MPCB",Nagpur,Maharashtra,11.0,Good,PARTIAL_HIGH_CONFIDENCE,OZONE,11.0,,,8.75,,1.3,0.5,11.0
+"Opp GPO Civil Lines, Nagpur - MPCB",Nagpur,Maharashtra,67.33,Satisfactory,FULL,PM2.5,67.33,67.33,48.0,13.75,26.25,1.05,0.5,9.0
+"Ambazari, Nagpur - MPCB",Nagpur,Maharashtra,75.5,Satisfactory,FULL,PM2.5,75.5,75.5,44.0,15.0,17.5,1.1,0.5,18.0
+"Sneh Nagar, Nanded - MPCB",Nanded,Maharashtra,120.8,Moderate,FULL,PM2.5,120.8,120.8,73.54,2.5,11.25,1.15,0.75,44.0
+"Sewri, Mumbai - BMC",Mumbai,Maharashtra,59.17,Satisfactory,FULL,PM2.5,59.17,59.17,42.0,5.0,41.25,0.7,1.25,14.0
+"Khindipada-Bhandup West, Mumbai - IITM",Mumbai,Maharashtra,52.96,Satisfactory,FULL,PM10,52.96,46.67,52.96,10.0,28.75,1.7,0.5,14.0
+"Kandivali West, Mumbai - BMC",Mumbai,Maharashtra,52.63,Satisfactory,FULL,PM2.5,52.63,52.63,34.0,1.25,13.75,0.7,0.5,25.0
+"Chakala-Andheri East, Mumbai - IITM",Mumbai,Maharashtra,54.92,Satisfactory,FULL,PM10,54.92,16.67,54.92,2.5,15.0,1.8,1.5,8.0
+"Kurla, Mumbai - MPCB",Mumbai,Maharashtra,80.4,Satisfactory,FULL,PM2.5,80.4,80.4,55.9,36.25,11.25,1.25,0.5,29.0
+"Bandra Kurla Complex, Mumbai - IITM",Mumbai,Maharashtra,14.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,14.0,,,,,1.85,,14.0
+"Byculla, Mumbai - BMC",Mumbai,Maharashtra,55.9,Satisfactory,FULL,PM2.5,55.9,55.9,52.96,2.5,26.25,1.35,0.5,8.0
+"Kherwadi_Bandra East, Mumbai - MPCB",Mumbai,Maharashtra,55.9,Satisfactory,FULL,PM2.5,55.9,55.9,43.0,6.25,7.5,1.1,1.25,11.0
+"Borivali East, Mumbai - IITM",Mumbai,Maharashtra,80.4,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,80.4,80.4,57.86,,8.75,2.05,0.5,25.0
+"Gavalinagar, Pimpri Chinchwad - MPCB",Pimpri-Chinchwad,Maharashtra,64.07,Satisfactory,FULL,PM2.5,64.07,64.07,41.0,1.25,22.5,0.7,0.0,22.0
+"Savta Mali Nagar, Pimpri-Chinchwad - IITM",Pimpri-Chinchwad,Maharashtra,57.86,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,57.86,23.33,57.86,,32.5,1.2,,13.0
+"Transport Nagar-Nigdi, Pune - IITM",Pimpri-Chinchwad,Maharashtra,114.2,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,114.2,114.2,69.62,,37.5,1.9,,15.0
+"Panchawati_Pashan, Pune - IITM",Pune,Maharashtra,86.93,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,86.93,86.93,62.76,,10.0,1.25,,20.0
+"Savitribai Phule Pune University, Pune - MPCB",Pune,Maharashtra,55.9,Satisfactory,FULL,PM10,55.9,54.27,55.9,5.0,17.5,1.75,0.5,19.0
+"Hadapsar, Pune - IITM",Pune,Maharashtra,104.3,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,104.3,104.3,72.56,,30.0,3.1,,14.0
+"Katraj Dairy, Pune - MPCB",Pune,Maharashtra,30.0,Good,FULL,PM10,30.0,28.33,30.0,3.75,17.5,1.65,0.25,10.0
+"Revenue Colony-Shivajinagar, Pune - IITM",Pune,Maharashtra,98.37,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,98.37,98.37,80.4,12.5,40.0,4.55,,23.0
+"Plammoodu, Thiruvananthapuram - Kerala PCB",Thiruvananthapuram,Kerala,31.67,Good,FULL,PM2.5,31.67,31.67,29.0,18.75,5.0,0.7,0.25,17.0
+"Kariavattom, Thiruvananthapuram - Kerala PCB",Thiruvananthapuram,Kerala,91.83,Satisfactory,FULL,PM2.5,91.83,91.83,83.34,5.0,7.5,1.05,0.0,30.0
+"Corporation Ground, Thrissur - Kerala PCB",Thrissur,Kerala,86.93,Satisfactory,FULL,PM2.5,86.93,86.93,50.0,0.0,11.25,0.6,0.0,30.0
+"Skara Yokma, Leh - LPCC",Leh,Ladakh,112.65,Moderate,PARTIAL_HIGH_CONFIDENCE,OZONE,112.65,30.0,23.0,12.5,,9.8,,112.65
+"Idgah Hills, Bhopal - MPPCB",Bhopal,Madhya Pradesh,93.47,Satisfactory,FULL,PM2.5,93.47,93.47,79.42,6.25,11.25,1.1,1.0,37.0
+"T T Nagar, Bhopal - MPPCB",Bhopal,Madhya Pradesh,107.6,Moderate,FULL,PM2.5,107.6,107.6,89.22,31.25,28.75,0.3,1.5,32.0
+"Paryavaran Parisar, Bhopal - MPPCB",Bhopal,Madhya Pradesh,117.5,Moderate,FULL,PM2.5,117.5,117.5,80.4,7.5,26.25,0.85,0.5,31.0
+"Bhopal Chauraha, Dewas - MPPCB",Dewas,Madhya Pradesh,124.1,Moderate,FULL,PM2.5,124.1,124.1,92.16,43.75,85.3,1.45,0.5,44.0
+"Maharaj Bada, Gwalior - MPPCB",Gwalior,Madhya Pradesh,313.18,Very Poor,FULL,PM2.5,313.18,313.18,102.98,20.0,48.75,1.75,1.5,48.0
+"City Center, Gwalior - MPPCB",Gwalior,Madhya Pradesh,147.2,Moderate,FULL,PM2.5,147.2,147.2,69.62,22.5,70.6,2.45,0.5,27.0
+"Katrap, Badlapur - MPCB",Badlapur,Maharashtra,60.8,Satisfactory,FULL,PM2.5,60.8,60.8,43.0,8.75,12.5,2.65,3.5,8.0
+"CBD Belapur, Belapur - MPCB",Belapur,Maharashtra,72.23,Satisfactory,FULL,PM2.5,72.23,72.23,63.74,6.25,38.75,1.9,0.5,13.0
+"Gokul Nagar, Bhiwandi - MPCB",Bhiwandi,Maharashtra,73.87,Satisfactory,FULL,PM2.5,73.87,73.87,71.58,3.75,8.75,1.3,10.0,27.0
+"Khaira, Boisar - MPCB",Boisar,Maharashtra,68.97,Satisfactory,FULL,PM2.5,68.97,68.97,56.88,12.5,16.25,1.2,1.25,30.0
+"Ashta Vinayak Nagar, Hingoli - MPCB",Hingoli,Maharashtra,91.83,Satisfactory,FULL,PM2.5,91.83,91.83,79.42,6.25,13.75,0.9,0.75,37.0
+"Prabhat Colony, Jalgaon - MPCB",Jalgaon,Maharashtra,107.6,Moderate,FULL,PM2.5,107.6,107.6,78.44,2.5,7.5,1.0,0.75,23.0
+"Old MIDC, Jalna - MPCB",Jalna,Maharashtra,324.61,Very Poor,FULL,PM2.5,324.61,324.61,92.16,0.0,23.75,0.85,1.0,40.0
+"Pimpleshwar Mandir, Kalyan - MPCB",Kalyan,Maharashtra,51.98,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,51.98,,51.98,15.0,17.5,2.0,0.25,32.0
+"Khadakpada, Kalyan - MPCB",Kalyan,Maharashtra,93.47,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,93.47,93.47,56.88,,46.25,,0.25,8.0
+"Shivaji University, Kolhapur - MPCB",Kolhapur,Maharashtra,41.0,Good,PARTIAL_HIGH_CONFIDENCE,PM10,41.0,30.0,41.0,0.0,,0.7,0.75,15.0
+"Sawe Wadi, Latur - MPCB",Latur,Maharashtra,51.98,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,51.98,,51.98,5.0,10.0,0.75,0.75,17.0
+"Kamble Tarf Birwadi, Mahad - MPCB",Mahad,Maharashtra,64.07,Satisfactory,FULL,PM2.5,64.07,64.07,48.0,6.25,16.25,0.8,1.25,13.0
+"Mahesh Nagar, Malegaon - MPCB",Malegaon,Maharashtra,186.8,Moderate,FULL,PM2.5,186.8,186.8,102.32,5.0,21.25,0.75,0.25,15.0
+"Bhayandar West, Mira-Bhayandar - MPCB",Mira-Bhayandar,Maharashtra,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,33.0,2.5,16.25,1.1,0.75,7.0
+"Chhatrapati Shivaji Intl. Airport (T2), Mumbai - MPCB",Mumbai,Maharashtra,45.0,Good,PARTIAL_HIGH_CONFIDENCE,PM2.5,45.0,45.0,31.0,10.0,16.25,,0.25,
+"Navy Nagar-Colaba, Mumbai - IITM",Mumbai,Maharashtra,60.8,Satisfactory,FULL,PM2.5,60.8,60.8,41.0,11.25,52.23,1.4,0.5,23.0
+"Mulund West, Mumbai - MPCB",Mumbai,Maharashtra,77.13,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,77.13,77.13,,,16.25,0.5,1.25,
+"Sector-2 Industrial Area, Pithampur - MPPCB",Pithampur,Madhya Pradesh,360.4,Very Poor,FULL,PM2.5,360.4,360.4,159.08,102.98,23.75,1.45,2.75,69.62
+"Shasthri Nagar, Ratlam - IPCA Lab",Ratlam,Madhya Pradesh,91.83,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,91.83,91.83,56.88,15.0,47.5,,,
+"Mahashweta Nagar, Ujjain - MPPCB",Ujjain,Madhya Pradesh,183.5,Moderate,FULL,PM2.5,183.5,183.5,65.7,6.25,30.0,1.7,2.0,80.4
+"Tarakpur, Ahmednagar - MPCB",Ahmednagar,Maharashtra,110.9,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,110.9,110.9,53.94,,,1.3,0.25,41.0
+"Chinchpada, Ambernath - MPCB",Ambernath,Maharashtra,75.5,Satisfactory,FULL,PM10,75.5,67.33,75.5,30.0,28.75,0.5,0.5,14.0
+"Shri Shivaji Science College, Amravati - MPCB",Amravati,Maharashtra,62.43,Satisfactory,FULL,PM2.5,62.43,62.43,54.92,10.0,12.5,1.45,0.25,27.0
+"More Chowk Waluj, Aurangabad - MPCB",Aurangabad,Maharashtra,59.17,Satisfactory,FULL,PM2.5,59.17,59.17,37.0,3.75,12.5,3.3,1.75,33.0
+"Gangapur Road, Nashik - MPCB",Nashik,Maharashtra,64.07,Satisfactory,FULL,PM2.5,64.07,64.07,41.0,5.0,6.25,0.1,0.75,37.0
+"Hirawadi, Nashik - MPCB",Nashik,Maharashtra,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,54.92,1.25,1.25,0.8,0.5,28.0
+"Kopripada-Vashi, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,210.9,Poor,FULL,PM2.5,210.9,210.9,86.28,3.75,25.0,2.3,0.5,12.0
+"Nerul, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,64.07,Satisfactory,PARTIAL_LOW_CONFIDENCE,PM2.5,64.07,64.07,,,3.75,,0.0,
+"Sector-2E Kalamboli, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,70.6,Satisfactory,FULL,PM2.5,70.6,70.6,48.0,7.5,11.25,0.75,2.25,14.0
+"Sanpada, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,66.68,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,66.68,,66.68,21.25,21.25,1.45,1.5,10.0
+"Mahape, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,71.58,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,71.58,45.0,71.58,15.0,54.67,,0.25,9.0
+"Masoom Colony, Parbhani - MPCB",Parbhani,Maharashtra,160.4,Moderate,FULL,PM2.5,160.4,160.4,104.96,2.5,7.5,0.55,0.75,7.0
+"Dhoinda, Rajsamand - RSPCB",Rajsamand,Rajasthan,93.47,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,93.47,93.47,83.34,,,1.7,4.75,44.0
+"Sahu Nagar, Sawai Madhopur - RSPCB",Sawai Madhopur,Rajasthan,147.2,Moderate,FULL,PM2.5,147.2,147.2,112.88,6.25,22.5,1.75,1.25,48.0
+"Radhakishan Pura, Sikar - RSPCB",Sikar,Rajasthan,120.8,Moderate,FULL,PM2.5,120.8,120.8,110.9,3.75,25.0,1.4,4.0,49.0
+"Vedhaynath Colony, Sirohi - RSPCB",Sirohi,Rajasthan,66.68,Satisfactory,FULL,PM10,66.68,57.53,66.68,6.25,15.0,0.75,0.75,61.78
+"Old City, Sri Ganganagar - RSPCB",Sri Ganganagar,Rajasthan,263.7,Poor,FULL,PM2.5,263.7,263.7,153.14,12.5,59.58,2.65,3.5,37.0
+"Shastri Nagar, Tonk - RSPCB",Tonk,Rajasthan,157.1,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,157.1,157.1,118.16,2.5,20.0,1.55,,66.68
+"Ashok Nagar, Udaipur - RSPCB",Udaipur,Rajasthan,207.6,Poor,FULL,PM2.5,207.6,207.6,113.54,35.0,20.0,0.65,1.0,17.0
+"Zero Point GICI, Gangtok - SSPCB",Gangtok,Sikkim,10.0,Good,PARTIAL_HIGH_CONFIDENCE,NO2,10.0,,,1.25,10.0,0.25,0.25,1.0
+"Manali, Chennai - CPCB",Chennai,Tamil Nadu,167.0,Moderate,FULL,PM2.5,167.0,167.0,90.2,22.5,12.5,1.25,1.5,11.0
+"Velachery Res. Area, Chennai - CPCB",Chennai,Tamil Nadu,101.66,Moderate,PARTIAL_HIGH_CONFIDENCE,PM10,101.66,54.27,101.66,7.5,,,,9.0
+"Uchapatti, Madurai - TNPCB",Madurai,Tamil Nadu,6.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,6.0,,,,,0.5,,6.0
+"Kompally Municipal Office, Hyderabad - TSPCB",Hyderabad,Telangana,73.54,Satisfactory,FULL,PM10,73.54,54.27,73.54,10.0,18.75,0.8,0.5,12.0
+"15th Mile-Nongthymmai, Byrnihat -Meghalaya PCB",Byrnihat,Meghalaya,147.2,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,147.2,147.2,131.36,,2.5,,0.0,
+"Lumpyngngad, Shillong - Meghalaya PCB",Shillong,Meghalaya,16.25,Good,PARTIAL_HIGH_CONFIDENCE,SO2,16.25,,,16.25,0.0,0.65,0.0,15.0
+"Hakimapada, Angul - OSPCB",Angul,Odisha,43.0,Good,FULL,PM10,43.0,41.67,43.0,36.25,38.75,2.85,1.25,16.0
+"Kalidaspur, Balasore - OSPCB",Balasore,Odisha,37.0,Good,FULL,OZONE,37.0,15.0,16.0,11.25,10.0,2.3,0.75,37.0
+"Forest Office, Barbil - OSPCB",Barbil,Odisha,24.0,Good,FULL,OZONE,24.0,11.67,22.0,17.5,12.5,0.95,0.5,24.0
+"Lingraj Mandir, Bhubaneswar - OSPCB",Bhubaneswar,Odisha,44.0,Good,FULL,OZONE,44.0,16.67,14.0,15.0,12.5,0.95,1.0,44.0
+"Patia, Bhubaneswar - OSPCB",Bhubaneswar,Odisha,43.0,Good,FULL,OZONE,43.0,28.33,27.0,7.5,17.5,0.8,2.5,43.0
+"Tata Township, Bileipada - OSPCB",Bileipada,Odisha,30.0,Good,FULL,PM10,30.0,23.33,30.0,8.75,16.25,1.1,1.25,18.0
+"GM Office, Brajrajnagar - OSPCB",Brajrajnagar,Odisha,42.0,Good,FULL,OZONE,42.0,20.0,17.0,21.25,37.5,2.85,1.0,42.0
+"Ferro Chrome Colony, Byasanagar - OSPCB",Byasanagar,Odisha,43.0,Good,FULL,OZONE,43.0,23.33,24.0,6.25,6.25,2.0,0.0,43.0
+"Jagamohanpur, Keonjhar - OSPCB",Keonjhar,Odisha,60.8,Satisfactory,FULL,PM2.5,60.8,60.8,33.0,26.25,18.75,2.25,0.5,9.0
+"Dabuna, Nayagarh - OSPCB",Nayagarh,Odisha,22.5,Good,FULL,SO2,22.5,18.33,17.0,22.5,8.75,0.35,1.5,16.0
+"Nua Sandhakuda, Paradeep - OSPCB",Paradeep,Odisha,39.0,Good,FULL,OZONE,39.0,31.67,29.0,18.75,37.5,4.0,1.25,39.0
+"Divisional Forest Office, Rairangpur - OSPCB",Rairangpur,Odisha,35.0,Good,FULL,PM2.5,35.0,35.0,25.0,11.25,7.5,0.75,0.75,6.0
+"Raghunathpali, Rourkela - OSPCB",Rourkela,Odisha,10.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,10.0,,,,,0.6,,10.0
+"Jawahar Nagar, Puducherry - PPCC",Puducherry,Puducherry,43.33,Good,FULL,PM2.5,43.33,43.33,37.0,12.5,23.75,1.15,0.5,21.0
+"Golden Temple, Amritsar - PPCB",Amritsar,Punjab,183.5,Moderate,FULL,PM2.5,183.5,183.5,92.16,15.0,26.25,1.25,1.75,18.0
+"Hardev Nagar, Bathinda - PPCB",Bathinda,Punjab,89.22,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,89.22,85.3,89.22,18.75,38.75,1.0,,
+"Civil Line, Jalandhar - PPCB",Jalandhar,Punjab,243.9,Poor,FULL,PM2.5,243.9,243.9,83.34,21.25,60.8,2.5,1.0,30.0
+"Housing Board, Hanumangarh - RSPCB",Hanumangarh,Rajasthan,247.2,Poor,FULL,PM2.5,247.2,247.2,98.04,6.25,16.25,1.9,1.25,29.0
+"Shastri Nagar, Jaipur - RSPCB",Jaipur,Rajasthan,210.9,Poor,FULL,PM2.5,210.9,210.9,101.66,32.5,52.23,1.95,2.75,52.96
+"Mansarovar Sector-12, Jaipur - RSPCB",Jaipur,Rajasthan,157.1,Moderate,FULL,PM2.5,157.1,157.1,116.18,3.75,41.25,2.65,1.0,97.06
+"Police Commissionerate, Jaipur - RSPCB",Jaipur,Rajasthan,130.7,Moderate,FULL,PM2.5,130.7,130.7,112.22,25.0,107.93,2.9,3.0,42.0
+"Sector-2 Murlipura, Jaipur - RSPCB",Jaipur,Rajasthan,87.26,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,87.26,85.3,87.26,,48.75,3.85,2.5,44.0
+"RIICO Sitapura, Jaipur - RSPCB",Jaipur,Rajasthan,380.96,Very Poor,FULL,PM2.5,380.96,380.96,131.36,11.25,88.97,2.75,0.75,90.2
+"Sadar Bazar, Jaisalmer - RSPCB",Jaisalmer,Rajasthan,79.42,Satisfactory,FULL,PM10,79.42,72.23,79.42,3.75,59.58,0.7,3.25,56.88
+"Mudtra Sili, Jalore - RSPCB",Jalore,Rajasthan,61.78,Satisfactory,PARTIAL_LOW_CONFIDENCE,OZONE,61.78,,,,,0.95,,61.78
+"Indra Nagar, Jhunjhunu - RSPCB",Jhunjhunu,Rajasthan,107.6,Moderate,FULL,PM2.5,107.6,107.6,99.02,6.25,30.0,1.3,1.5,76.48
+"Collectorate, Jodhpur - RSPCB",Jodhpur,Rajasthan,117.5,Moderate,FULL,PM2.5,117.5,117.5,99.02,8.75,37.5,0.95,2.5,19.0
+"Jhalamand, Jodhpur - RSPCB",Jodhpur,Rajasthan,180.2,Moderate,FULL,PM2.5,180.2,180.2,139.94,3.75,57.12,1.05,4.0,26.0
+"Ramachandrapuram, Hyderabad - TSPCB",Hyderabad,Telangana,53.94,Satisfactory,FULL,PM10,53.94,52.63,53.94,10.0,15.0,1.15,0.75,20.0
+"Zoo Park, Hyderabad - TSPCB",Hyderabad,Telangana,50.0,Good,FULL,PM2.5,50.0,50.0,34.0,1.25,3.75,2.3,0.5,3.0
+"ECIL Kapra, Hyderabad - TSPCB",Hyderabad,Telangana,77.13,Satisfactory,FULL,PM2.5,77.13,77.13,56.88,15.0,12.5,1.25,1.5,20.0
+"Kokapet, Hyderabad - TSPCB",Hyderabad,Telangana,70.6,Satisfactory,FULL,PM2.5,70.6,70.6,59.82,10.0,15.0,1.3,0.75,17.0
+"New Malakpet, Hyderabad - TSPCB",Hyderabad,Telangana,83.67,Satisfactory,FULL,PM2.5,83.67,83.67,62.76,11.25,15.0,1.05,0.75,14.0
+"Central University, Hyderabad - TSPCB",Hyderabad,Telangana,33.33,Good,FULL,PM2.5,33.33,33.33,29.0,10.0,30.0,1.05,0.25,23.0
+"IITH Kandi, Hyderabad - TSPCB",Hyderabad,Telangana,26.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,26.0,,,,,1.7,,26.0
+"ICRISAT Patancheru, Hyderabad - TSPCB",Hyderabad,Telangana,80.4,Satisfactory,FULL,PM2.5,80.4,80.4,39.0,11.25,18.75,0.6,0.5,26.0
+"IDA Pashamylaram, Hyderabad - TSPCB",Hyderabad,Telangana,86.93,Satisfactory,FULL,PM2.5,86.93,86.93,49.0,11.25,12.5,0.8,0.25,8.0
+"Sanathnagar, Hyderabad - TSPCB",Hyderabad,Telangana,70.6,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,70.6,70.6,,11.25,40.0,1.85,,14.0
+"Bamboliya, Baran - RSPCB",Baran,Rajasthan,78.44,Satisfactory,FULL,PM10,78.44,54.27,78.44,8.75,20.0,1.85,1.5,24.0
+"Railway Colony, Barmer - RSPCB",Barmer,Rajasthan,82.36,Satisfactory,FULL,PM10,82.36,67.33,82.36,8.75,15.0,2.3,1.75,66.68
+"Pratap Nagar, Bhilwara - RSPCB",Bhilwara,Rajasthan,200.0,Moderate,FULL,PM2.5,200.0,200.0,117.5,8.75,32.5,1.65,2.0,37.0
+"Vasundhara Nagar_UIT, Bhiwadi - RSPCB",Bhiwadi,Rajasthan,127.4,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,127.4,127.4,102.98,11.25,41.25,2.85,,33.0
+"RIICO Ind. Area III, Bhiwadi - RSPCB",Bhiwadi,Rajasthan,336.03,Very Poor,FULL,PM2.5,336.03,336.03,149.84,13.75,30.0,2.85,1.5,14.0
+"New Colony, Bundi - RSPCB",Bundi,Rajasthan,163.7,Moderate,FULL,PM2.5,163.7,163.7,86.28,5.0,45.0,0.9,1.25,52.96
+"Shastri Nagar, Chittorgarh - RSPCB",Chittorgarh,Rajasthan,243.9,Poor,FULL,PM2.5,243.9,243.9,114.2,17.5,36.25,0.75,2.25,43.0
+"Subash Chowk, Churu - RSPCB",Churu,Rajasthan,110.24,Moderate,FULL,PM10,110.24,86.93,110.24,5.0,12.5,1.8,2.0,72.56
+"Khatikan Mohalla, Dausa - RSPCB",Dausa,Rajasthan,296.7,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,296.7,296.7,133.34,1.25,43.75,1.5,,33.0
+"Raja Ganj, Dholpur - RSPCB",Dholpur,Rajasthan,234.0,Poor,FULL,PM2.5,234.0,234.0,102.32,8.75,11.25,1.95,3.0,12.0
+"Kalal Majra, Khanna - PPCB",Khanna,Punjab,65.7,Satisfactory,FULL,PM10,65.7,64.07,65.7,12.5,26.25,3.9,1.5,22.0
+"Punjab Agricultural University, Ludhiana - PPCB",Ludhiana,Punjab,296.7,Poor,FULL,PM2.5,296.7,296.7,106.94,22.5,60.8,0.75,2.5,28.0
+"Model Town, Patiala - PPCB",Patiala,Punjab,88.24,Satisfactory,FULL,PM10,88.24,80.4,88.24,30.0,18.75,1.35,1.5,13.0
+"Ratanpura, Rupnagar - Ambuja Cements",Rupnagar,Punjab,59.17,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,59.17,59.17,39.0,15.0,32.5,2.8,,
+"Civil Lines,  Ajmer - RSPCB",Ajmer,Rajasthan,98.37,Satisfactory,FULL,PM2.5,98.37,98.37,91.18,8.75,45.0,2.2,2.0,17.0
+"Vigyan Nagar, Alwar - RSPCB",Alwar,Rajasthan,210.9,Poor,FULL,PM2.5,210.9,210.9,129.38,8.75,20.0,3.05,4.0,54.92
+"Moti Doongri, Alwar - RSPCB",Alwar,Rajasthan,157.1,Moderate,FULL,PM2.5,157.1,157.1,74.52,32.5,58.35,4.75,2.25,29.0
+"Rati Talai, Banswara - RSPCB",Banswara,Rajasthan,75.5,Satisfactory,FULL,PM10,75.5,35.0,75.5,12.5,42.5,0.8,1.25,29.0
+"Dhankawadi, Pune - IITM",Pune,Maharashtra,67.33,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,67.33,67.33,59.82,,17.5,,,10.0
+"Koyana Nagar, Satara - MPCB",Satara,Maharashtra,70.6,Satisfactory,FULL,PM2.5,70.6,70.6,68.64,6.25,8.75,1.0,0.25,38.0
+"Ratandeep Housing Society, Solapur - MPCB",Solapur,Maharashtra,91.83,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,91.83,91.83,57.86,,32.5,0.9,1.25,26.0
+"Dnyaneshwar Nagar, Solapur - MPCB",Solapur,Maharashtra,54.27,Satisfactory,FULL,PM2.5,54.27,54.27,32.0,5.0,12.5,0.75,2.25,15.0
+"Kasarvadavali, Thane - MPCB",Thane,Maharashtra,77.46,Satisfactory,FULL,PM10,77.46,62.43,77.46,7.5,25.0,2.8,0.0,11.0
+"Upvan Fort, Thane - MPCB",Thane,Maharashtra,57.53,Satisfactory,FULL,PM2.5,57.53,57.53,47.0,2.5,12.5,0.9,0.5,14.0
+"Sidhi Vinayak Nagar, Ulhasnagar - MPCB",Ulhasnagar,Maharashtra,160.4,Moderate,FULL,PM2.5,160.4,160.4,83.34,8.75,12.5,0.3,0.5,9.0
+"Bolinj, Virar - MPCB",Virar,Maharashtra,50.0,Good,FULL,PM2.5,50.0,50.0,45.0,2.5,16.25,1.9,2.0,20.0
+"Digari Kalan, Jodhpur - RSPCB",Jodhpur,Rajasthan,137.3,Moderate,FULL,PM2.5,137.3,137.3,114.2,8.75,55.9,1.2,5.5,61.78
+"Satyawati Vihar, Karauli - RSPCB",Karauli,Rajasthan,42.0,Good,PARTIAL_HIGH_CONFIDENCE,OZONE,42.0,30.0,31.0,,31.25,0.8,3.0,42.0
+"New Anaj Mandi, Khairthal - RSPCB",Khairthal,Rajasthan,82.36,Satisfactory,PARTIAL_LOW_CONFIDENCE,OZONE,82.36,,,,,6.35,,82.36
+"Shrinath Puram, Kota - RSPCB",Kota,Rajasthan,82.36,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,82.36,,82.36,8.75,11.25,3.05,1.0,7.0
+"Karni Colony, Nagaur - RSPCB",Nagaur,Rajasthan,132.02,Moderate,FULL,PM10,132.02,95.1,132.02,3.75,35.0,1.75,2.25,40.0
+"Pragati Nagar, Pratapgarh - RSPCB",Pratapgarh,Rajasthan,190.1,Moderate,FULL,PM2.5,190.1,190.1,83.34,3.75,16.25,1.1,1.25,49.0
+"Jhunsi, Prayagraj - UPPCB",Prayagraj,Uttar Pradesh,48.33,Good,FULL,PM2.5,48.33,48.33,38.0,27.5,7.5,1.4,1.5,40.0
+"Indira Nagar, Raebareli - NTPC Unchahar",Raebareli,Uttar Pradesh,8.0,Good,SINGLE_POLLUTANT_ONLY,OZONE,8.0,,,,,,,8.0
+"Anand Nagar, Raebareli - UPPCB",Raebareli,Uttar Pradesh,74.52,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,74.52,59.17,74.52,16.25,26.25,2.9,,55.9
+"Maldahiya, Varanasi - UPPCB",Varanasi,Uttar Pradesh,7.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,7.0,,,,,0.7,,7.0
+"Ardhali Bazar, Varanasi - UPPCB",Varanasi,Uttar Pradesh,72.23,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,72.23,72.23,59.82,7.5,27.5,0.7,,13.0
+"Bhelupur, Varanasi - UPPCB",Varanasi,Uttar Pradesh,342.12,Very Poor,FULL,PM2.5,342.12,342.12,140.6,42.5,10.0,0.4,0.25,9.0
+"IESD Banaras Hindu University, Varanasi - UPPCB",Varanasi,Uttar Pradesh,57.53,Satisfactory,FULL,PM2.5,57.53,57.53,52.96,43.75,2.5,0.1,0.0,5.0
+"Omex Eternity, Vrindavan - UPPCB",Vrindavan,Uttar Pradesh,293.4,Poor,FULL,PM2.5,293.4,293.4,89.22,16.25,33.75,0.55,2.0,16.0
+"Chhatikara, Vrindavan - UPPCB",Vrindavan,Uttar Pradesh,301.76,Very Poor,FULL,PM2.5,301.76,301.76,170.3,31.25,5.0,7.65,1.0,52.96
+"Doon University, Dehradun - UKPCB",Dehradun,Uttarakhand,130.7,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,130.7,130.7,81.38,1.25,2.5,1.25,,18.0
+"Govt. Girls Inter College, Kashipur - UKPCB",Kashipur,Uttarakhand,0.7,Good,SINGLE_POLLUTANT_ONLY,CO,0.7,,,,,0.7,,
+"Somajiguda, Hyderabad - TSPCB",Hyderabad,Telangana,117.5,Moderate,FULL,PM2.5,117.5,117.5,56.88,11.25,18.75,1.35,0.75,16.0
+"Bardowali, Agartala - Tripura SPCB",Agartala,Tripura,50.0,Good,PARTIAL_HIGH_CONFIDENCE,PM2.5,50.0,50.0,46.0,21.25,16.25,1.35,,2.0
+"Manoharpur, Agra - UPPCB",Agra,Uttar Pradesh,224.1,Poor,FULL,PM2.5,224.1,224.1,110.24,16.25,38.75,1.0,0.5,6.0
+"Sanjay Palace, Agra - UPPCB",Agra,Uttar Pradesh,336.79,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,336.79,336.79,108.92,21.25,20.0,1.55,,10.0
+"Shastripuram, Agra - UPPCB",Agra,Uttar Pradesh,234.0,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,234.0,234.0,78.44,,15.0,2.45,0.75,8.0
+"Rohta, Agra - UPPCB",Agra,Uttar Pradesh,147.2,Moderate,FULL,PM2.5,147.2,147.2,112.88,22.5,20.0,1.65,1.5,14.0
+"Shahjahan Garden, Agra - UPPCB",Agra,Uttar Pradesh,95.1,Satisfactory,PARTIAL_HIGH_CONFIDENCE,SO2,95.1,,,95.1,32.5,2.15,0.25,2.0
+"Sardar Patel Inter College, Baghpat - UPPCB",Baghpat,Uttar Pradesh,243.9,Poor,FULL,PM2.5,243.9,243.9,155.12,18.75,42.5,1.2,0.75,28.0
+"Nagar Palika Parishad, Baraut - UPPCB",Baraut,Uttar Pradesh,319.28,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,319.28,319.28,91.18,5.0,33.75,2.2,,23.0
+"Rajendra Nagar, Bareilly - UPPCB",Bareilly,Uttar Pradesh,283.5,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,283.5,283.5,,20.0,11.25,1.0,0.25,
+"Civil Lines, Bareilly - UPPCB",Bareilly,Uttar Pradesh,90.2,Satisfactory,FULL,SO2,90.2,73.87,43.0,90.2,10.0,2.1,0.0,2.0
+"Employment Office, Moradabad - UPPCB",Moradabad,Uttar Pradesh,160.4,Moderate,FULL,PM2.5,160.4,160.4,98.04,53.45,28.75,0.7,0.75,17.0
+"Buddhi Vihar, Moradabad - UPPCB",Moradabad,Uttar Pradesh,186.8,Moderate,FULL,PM2.5,186.8,186.8,114.2,43.75,36.25,0.8,1.25,45.0
+"Jigar Colony, Moradabad - UPPCB",Moradabad,Uttar Pradesh,100.0,Satisfactory,FULL,PM2.5,100.0,100.0,97.06,70.6,31.25,2.0,1.5,31.0
+"New Mandi, Muzaffarnagar - UPPCB",Muzaffarnagar,Uttar Pradesh,310.14,Very Poor,FULL,PM2.5,310.14,310.14,125.42,21.25,31.25,2.7,0.5,15.0
+"Sector - 62, Noida - IITM",Noida,Uttar Pradesh,337.55,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,337.55,337.55,122.78,,10.0,1.75,,18.0
+"Sector - 125, Noida - UPPCB",Noida,Uttar Pradesh,329.94,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,329.94,329.94,189.44,11.25,,1.1,,12.0
+"Sector-1, Noida - UPPCB",Noida,Uttar Pradesh,293.4,Poor,FULL,PM2.5,293.4,293.4,135.32,11.25,50.0,2.9,3.5,47.0
+"Nagar Nigam, Prayagraj - UPPCB",Prayagraj,Uttar Pradesh,76.72,Satisfactory,FULL,SO2,76.72,35.0,76.48,76.72,6.25,0.9,2.0,16.0
+"Motilal Nehru NIT, Prayagraj - UPPCB",Prayagraj,Uttar Pradesh,40.0,Good,FULL,PM2.5,40.0,40.0,35.0,30.0,15.0,0.4,2.0,18.0
+"Knowledge Park - III, Greater Noida - UPPCB",Greater Noida,Uttar Pradesh,130.04,Moderate,PARTIAL_HIGH_CONFIDENCE,PM10,130.04,,130.04,11.25,65.7,2.45,2.75,3.0
+"Anand Vihar, Hapur - UPPCB",Hapur,Uttar Pradesh,330.7,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,330.7,330.7,118.82,17.5,,2.15,0.25,16.0
+"Shivaji Nagar, Jhansi - UPPCB",Jhansi,Uttar Pradesh,227.4,Poor,FULL,PM2.5,227.4,227.4,99.02,31.25,7.5,0.7,1.0,6.0
+"FTI Kidwai Nagar, Kanpur - UPPCB",Kanpur,Uttar Pradesh,77.13,Satisfactory,FULL,PM2.5,77.13,77.13,62.76,30.0,33.75,1.6,0.75,13.0
+"NSI Kalyanpur, Kanpur - UPPCB",Kanpur,Uttar Pradesh,82.03,Satisfactory,FULL,PM2.5,82.03,82.03,71.58,32.5,40.0,1.75,0.5,21.0
+"Prashant Garden, Khora - UPPCB",Khora,Uttar Pradesh,398.48,Very Poor,FULL,PM2.5,398.48,398.48,123.44,3.75,45.0,2.05,2.25,75.5
+"Kalindi Kunj, Khurja - UPPCB",Khurja,Uttar Pradesh,210.9,Poor,FULL,PM2.5,210.9,210.9,108.92,12.5,15.0,2.3,0.25,13.0
+"B R Ambedkar University, Lucknow - UPPCB",Lucknow,Uttar Pradesh,43.0,Good,FULL,PM10,43.0,40.0,43.0,41.25,17.5,1.9,0.75,24.0
+"Lalbagh, Lucknow - CPCB",Lucknow,Uttar Pradesh,220.8,Poor,FULL,PM2.5,220.8,220.8,84.32,3.75,32.5,1.4,4.25,28.0
+"Gomti Nagar, Lucknow - UPPCB",Lucknow,Uttar Pradesh,93.47,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,93.47,93.47,50.0,13.75,12.5,1.95,,42.0
+"Yamunapuram, Bulandshahr - UPPCB",Bulandshahr,Uttar Pradesh,176.9,Moderate,FULL,PM2.5,176.9,176.9,118.16,17.5,36.25,2.55,1.75,49.0
+"Dadupura, Fatehpur Sikri - UPPCB",Fatehpur Sikri,Uttar Pradesh,396.95,Very Poor,FULL,PM2.5,396.95,396.95,135.98,13.75,10.0,2.05,0.5,34.0
+"Nagla Bhau, Firozabad - UPPCB",Firozabad,Uttar Pradesh,40.0,Good,PARTIAL_HIGH_CONFIDENCE,SO2,40.0,,,40.0,21.25,1.7,0.5,14.0
+"Vibhab Nagar, Firozabad - UPPCB",Firozabad,Uttar Pradesh,52.63,Satisfactory,FULL,PM2.5,52.63,52.63,44.0,11.25,18.75,1.9,1.75,1.0
+"Indirapuram, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,346.69,Very Poor,FULL,PM2.5,346.69,346.69,123.44,8.75,27.5,0.35,2.5,27.0
+"Ved Vihar-Loni, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,324.61,Very Poor,FULL,PM2.5,324.61,324.61,123.44,18.75,48.75,4.95,3.5,12.0
+"Wave City, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,27.5,Good,PARTIAL_HIGH_CONFIDENCE,NO2,27.5,,,3.75,27.5,5.25,,27.0
+"Loni, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,355.07,Very Poor,FULL,PM2.5,355.07,355.07,159.74,18.75,55.9,3.15,1.0,7.0
+"Sanjay Nagar, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,243.9,Poor,FULL,PM2.5,243.9,243.9,128.72,10.0,36.25,2.2,2.25,30.0
+"Knowledge Park - V, Greater Noida - UPPCB",Greater Noida,Uttar Pradesh,357.35,Very Poor,FULL,PM2.5,357.35,357.35,139.94,8.75,82.85,2.2,3.75,30.0
+"Shivaji Nagar, Rishikesh - UKPCB",Rishikesh,Uttarakhand,34.0,Good,PARTIAL_HIGH_CONFIDENCE,OZONE,34.0,3.33,21.0,1.25,7.5,,0.5,34.0
+"Asansol Court Area, Asansol - WBPCB",Asansol,West Bengal,54.27,Satisfactory,FULL,PM2.5,54.27,54.27,32.0,17.5,36.25,1.45,0.75,20.0
+"Evelyn Lodge, Asansol - WBPCB",Asansol,West Bengal,30.0,Good,FULL,PM2.5,30.0,30.0,20.0,5.0,18.75,0.9,1.25,9.0
+"SVSPA Campus, Barrackpore - WBPCB",Barrackpore,West Bengal,38.33,Good,FULL,PM2.5,38.33,38.33,30.0,17.5,11.25,1.6,1.5,16.0
+"PCBL Residential Complex, Durgapur - WBPCB",Durgapur,West Bengal,93.47,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,93.47,93.47,75.5,13.75,,1.6,,9.0
+"Womens College_City Center, Durgapur - WBPCB",Durgapur,West Bengal,32.0,Good,FULL,PM10,32.0,21.67,32.0,15.0,31.25,1.7,0.5,22.0
+"Priyambada Housing Estate, Haldia - WBPCB",Haldia,West Bengal,25.0,Good,FULL,PM10,25.0,23.33,25.0,15.0,21.25,1.4,2.0,17.0
+"Dasnagar, Howrah - WBPCB",Howrah,West Bengal,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,37.0,11.25,5.0,2.35,0.25,22.0
+"Padmapukur, Howrah - WBPCB",Howrah,West Bengal,71.58,Satisfactory,FULL,PM10,71.58,62.43,71.58,6.25,36.25,2.65,1.75,18.0
+"Botanical Garden, Howrah - WBPCB",Howrah,West Bengal,73.87,Satisfactory,FULL,PM2.5,73.87,73.87,41.0,11.25,16.25,0.3,0.5,48.0
+"Fort William, Kolkata - WBPCB",Kolkata,West Bengal,46.67,Good,FULL,PM2.5,46.67,46.67,24.0,8.75,18.75,0.85,1.75,41.0
+"Victoria, Kolkata - WBPCB",Kolkata,West Bengal,57.86,Satisfactory,FULL,PM10,57.86,52.63,57.86,6.25,17.5,1.2,1.0,26.0
+"Rabindra Sarobar, Kolkata - WBPCB",Kolkata,West Bengal,30.0,Good,FULL,PM2.5,30.0,30.0,21.0,7.5,25.0,0.9,1.5,17.0
+"Kukrail Picnic Spot-1, Lucknow - UPPCB",Lucknow,Uttar Pradesh,73.87,Satisfactory,FULL,PM2.5,73.87,73.87,52.96,32.5,40.0,0.7,1.5,11.0
+"Pallavpuram Phase 2, Meerut - UPPCB",Meerut,Uttar Pradesh,315.47,Very Poor,FULL,PM2.5,315.47,315.47,118.16,30.0,42.5,0.95,2.5,36.0
+"Ganga Nagar, Meerut - UPPCB",Meerut,Uttar Pradesh,227.4,Poor,FULL,PM2.5,227.4,227.4,118.82,11.25,37.5,2.8,2.25,54.92
+"MIET College, Meerut - UPPCB",Meerut,Uttar Pradesh,320.8,Very Poor,FULL,PM2.5,320.8,320.8,105.62,5.0,33.75,2.95,1.25,105.37
+"Jai Bhim Nagar, Meerut - UPPCB",Meerut,Uttar Pradesh,163.7,Moderate,FULL,PM2.5,163.7,163.7,106.94,11.25,30.0,3.7,1.5,44.0
+"Bidhannagar, Kolkata - WBPCB",Kolkata,West Bengal,31.0,Good,FULL,OZONE,31.0,18.33,30.0,11.25,16.25,1.3,1.25,31.0
+"Ward-32 Bapupara, Siliguri - WBPCB",Siliguri,West Bengal,28.33,Good,FULL,PM2.5,28.33,28.33,28.0,18.75,21.25,1.35,2.0,18.0
+"Nawapara SECL Colony, Chhal - CECB",Chhal,Chhattisgarh,52.96,Satisfactory,FULL,OZONE,52.96,43.33,45.0,25.0,6.25,1.05,0.5,52.96
+"Jahangirpuri, Delhi - DPCC",Delhi,Delhi,333.75,Very Poor,FULL,PM2.5,333.75,333.75,146.54,17.5,41.25,5.1,2.75,9.0
+"Sri Aurobindo Marg, Delhi - DPCC",Delhi,Delhi,220.8,Poor,FULL,PM2.5,220.8,220.8,115.52,11.25,31.25,2.25,1.25,20.0
+"GVM Corporation, Visakhapatnam - APPCB",Visakhapatnam,Andhra Pradesh,34.0,Good,FULL,OZONE,34.0,23.33,20.0,5.0,27.5,1.55,0.75,34.0
+"Pan Bazaar, Guwahati - PCBA",Guwahati,Assam,46.25,Good,PARTIAL_HIGH_CONFIDENCE,SO2,46.25,,,46.25,2.5,0.4,0.25,13.0
+"IITG, Guwahati - PCBA",Guwahati,Assam,42.5,Good,PARTIAL_HIGH_CONFIDENCE,SO2,42.5,16.67,,42.5,2.5,3.5,0.25,9.0
+"SDM Office_Khagra, Kishanganj - BSPCB",Kishanganj,Bihar,59.17,Satisfactory,FULL,PM2.5,59.17,59.17,35.0,10.0,8.75,1.95,0.75,33.0
+"DRM Office Danapur, Patna - BSPCB",Patna,Bihar,45.0,Good,FULL,PM2.5,45.0,45.0,35.0,10.0,28.75,1.75,3.25,21.0
+"Wazirpur, Delhi - DPCC",Delhi,Delhi,324.61,Very Poor,FULL,PM2.5,324.61,324.61,174.26,13.75,68.15,3.0,3.25,9.0
+"Sonia Vihar, Delhi - DPCC",Delhi,Delhi,345.93,Very Poor,FULL,PM2.5,345.93,345.93,124.1,23.75,20.0,2.9,3.5,20.0
+"Kareemganj, Gaya - BSPCB",Gaya,Bihar,57.86,Satisfactory,FULL,PM10,57.86,43.33,57.86,52.23,3.75,3.65,0.25,40.0
+"Rajiv Nagar, Vijayawada - APPCB",Vijayawada,Andhra Pradesh,86.93,Satisfactory,FULL,PM2.5,86.93,86.93,59.82,13.75,23.75,1.7,1.0,19.0
+"Urban Estate-II, Hisar - HSPCB",Hisar,Haryana,200.0,Moderate,FULL,PM2.5,200.0,200.0,102.32,31.25,30.0,0.45,2.5,56.88
+"Sector-12, Karnal - HSPCB",Karnal,Haryana,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,44.0,16.25,18.75,2.1,2.0,12.0
+"Najafgarh, Delhi - DPCC",Delhi,Delhi,207.6,Poor,FULL,PM2.5,207.6,207.6,115.52,36.25,26.25,1.7,1.5,16.0
+"DTU, Delhi - CPCB",Delhi,Delhi,318.52,Very Poor,FULL,PM2.5,318.52,318.52,115.52,38.75,27.5,1.3,2.0,26.0
+"IGI Airport (T3), Delhi - IITM",Delhi,Delhi,150.5,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,150.5,150.5,126.74,,97.55,3.2,,87.26
+"Talkatora Garden, Delhi - DPCC",Delhi,Delhi,263.7,Poor,FULL,PM2.5,263.7,263.7,102.98,2.5,22.5,3.75,0.5,18.0
+"Khunmoh, Srinagar - JKPCC",Srinagar,Jammu and Kashmir,85.3,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM10,85.3,10.0,85.3,5.0,25.0,,,
+"Hebbal, Bengaluru - KSPCB",Bengaluru,Karnataka,33.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,33.0,,,,,1.5,,33.0
+"Hombegowda Nagar, Bengaluru - KSPCB",Bengaluru,Karnataka,51.98,Satisfactory,FULL,PM10,51.98,48.33,51.98,6.25,16.25,1.0,0.25,17.0
+"Peenya, Bengaluru - CPCB",Bengaluru,Karnataka,36.67,Good,PARTIAL_HIGH_CONFIDENCE,PM2.5,36.67,36.67,,12.5,28.75,1.65,1.25,22.0
+"Jigani, Bengaluru - KSPCB",Bengaluru,Karnataka,23.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,23.0,,,,,1.75,,23.0
+"Phase-4 GIDC, Vatva - GPCB",Vatva,Gujarat,193.4,Moderate,FULL,PM2.5,193.4,193.4,108.92,65.7,28.75,3.9,1.25,14.0
+"Chandkheda, Ahmedabad - IITM",Ahmedabad,Gujarat,243.9,Poor,FULL,PM2.5,243.9,243.9,102.32,10.0,17.5,1.5,1.25,4.0
+"SVPI Airport Hansol, Ahmedabad - IITM",Ahmedabad,Gujarat,183.5,Moderate,FULL,PM2.5,183.5,183.5,111.56,3.75,35.0,1.1,1.0,14.0
+"Sector-18, Panipat - HSPCB",Panipat,Haryana,358.12,Very Poor,FULL,PM2.5,358.12,358.12,108.92,62.02,8.75,1.35,2.5,42.0
+"Collector Office, Yadgir - KSPCB",Yadgir,Karnataka,40.0,Good,FULL,PM2.5,40.0,40.0,37.0,18.75,2.5,1.35,0.25,18.0
+"Bir, Beed - MPCB",Beed,Maharashtra,24.0,Good,PARTIAL_HIGH_CONFIDENCE,OZONE,24.0,,,8.75,18.75,1.15,0.75,24.0
+"Chauhan Colony, Chandrapur - MPCB",Chandrapur,Maharashtra,124.1,Moderate,FULL,PM2.5,124.1,124.1,85.3,16.25,21.25,1.5,0.5,12.0
+"MIDC Khutala, Chandrapur - MPCB",Chandrapur,Maharashtra,105.62,Moderate,PARTIAL_HIGH_CONFIDENCE,PM10,105.62,64.07,105.62,5.0,,2.0,,15.0
+"Kalu Nagar, Dombivli - MPCB",Dombivli,Maharashtra,33.0,Good,SINGLE_POLLUTANT_ONLY,OZONE,33.0,,,,,,,33.0
+"Tamaka Ind. Area, Kolar - KSPCB",Kolar,Karnataka,29.0,Good,SINGLE_POLLUTANT_ONLY,OZONE,29.0,,,,,,,29.0
+"Stuart Hill, Madikeri - KSPCB",Madikeri,Karnataka,19.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,19.0,,,,,3.15,,19.0
+"Siddharth Nagar-Worli, Mumbai - IITM",Mumbai,Maharashtra,34.0,Good,PARTIAL_HIGH_CONFIDENCE,PM10,34.0,21.67,34.0,,28.75,1.45,0.25,23.0
+"Sinchan Bhavan, Kolhapur - MPCB",Kolhapur,Maharashtra,46.67,Good,FULL,PM2.5,46.67,46.67,30.0,1.25,8.75,0.5,0.25,26.0
+"Sion, Mumbai - MPCB",Mumbai,Maharashtra,6.25,Good,PARTIAL_LOW_CONFIDENCE,SO2,6.25,,,6.25,,1.0,,
+"Shivneri Colony, Amravati - MPCB",Amravati,Maharashtra,46.67,Good,FULL,PM2.5,46.67,46.67,41.0,3.75,11.25,0.75,0.5,15.0
+"MIDC Chilkalthana, Aurangabad - MPCB",Aurangabad,Maharashtra,3.75,Good,PARTIAL_HIGH_CONFIDENCE,SO2,3.75,,,3.75,1.25,1.35,1.5,3.0
+"Rachnakar Colony, Aurangabad - MPCB",Aurangabad,Maharashtra,107.6,Moderate,FULL,PM2.5,107.6,107.6,57.86,2.5,17.5,1.45,0.25,10.0
+"Bandra Kurla Complex, Mumbai - MPCB",Mumbai,Maharashtra,19.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,19.0,,,,,1.1,,19.0
+"Shivaji Nagar, Mumbai - BMC",Mumbai,Maharashtra,75.5,Satisfactory,FULL,PM2.5,75.5,75.5,44.0,8.75,28.75,0.45,1.5,13.0
+"Sikulpuikawn, Aizawl - Mizoram PCB",Aizawl,Mizoram,18.75,Good,PARTIAL_HIGH_CONFIDENCE,SO2,18.75,,12.0,18.75,1.25,0.15,0.0,1.0
+"PWD Junction, Kohima - NPCB",Kohima,Nagaland,4.0,Good,PARTIAL_LOW_CONFIDENCE,OZONE,4.0,,,,,0.15,,4.0
+"Meher Colony, Baripada - OSPCB",Baripada,Odisha,40.0,Good,PARTIAL_HIGH_CONFIDENCE,OZONE,40.0,13.33,,8.75,12.5,0.45,0.5,40.0
+"Bhoiwada, Dungarpur - RSPCB",Dungarpur,Rajasthan,140.6,Moderate,FULL,PM2.5,140.6,140.6,76.48,7.5,15.0,1.1,1.75,28.0
+"Adarsh Nagar, Jaipur - RSPCB",Jaipur,Rajasthan,173.6,Moderate,FULL,PM2.5,173.6,173.6,102.98,26.25,38.75,2.05,2.0,42.0
+"Tondare-Taloja, Navi Mumbai - MPCB",Navi Mumbai,Maharashtra,82.03,Satisfactory,FULL,PM2.5,82.03,82.03,41.0,2.5,13.75,1.75,1.0,20.0
+"Bhosari, Pune - IITM",Pimpri-Chinchwad,Maharashtra,98.37,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,98.37,98.37,63.74,,47.5,1.75,,18.0
+"Bhumkar Nagar, Pune - IITM",Pimpri-Chinchwad,Maharashtra,73.87,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,73.87,73.87,57.86,,22.5,1.75,,43.0
+"Park Street Wakad, Pimpri Chinchwad - MPCB",Pimpri-Chinchwad,Maharashtra,60.8,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,60.8,60.8,55.9,,32.5,0.95,,19.0
+"Vithalwadi, Ulhasnagar - MPCB",Ulhasnagar,Maharashtra,43.33,Good,FULL,PM2.5,43.33,43.33,43.0,10.0,11.25,0.65,1.25,7.0
+"Barsua Iron Ore Mines, Tensa - OSPCB",Tensa,Odisha,33.75,Good,PARTIAL_HIGH_CONFIDENCE,SO2,33.75,16.67,27.0,33.75,,1.25,,5.0
+"RIMT University, Mandi Gobindgarh - PPCB",Mandi Gobindgarh,Punjab,345.93,Very Poor,FULL,PM2.5,345.93,345.93,118.82,15.0,30.0,2.15,1.25,35.0
+"CDA Area, Cuttack - OSPCB",Cuttack,Odisha,57.86,Satisfactory,PARTIAL_HIGH_CONFIDENCE,OZONE,57.86,,16.0,21.25,18.75,1.0,1.25,57.86
+"Sector-2, Rourkela - OSPCB",Rourkela,Odisha,46.67,Good,PARTIAL_HIGH_CONFIDENCE,PM2.5,46.67,46.67,23.0,,17.5,0.5,,
+"Talcher Coalfields,Talcher - OSPCB",Talcher,Odisha,30.0,Good,PARTIAL_HIGH_CONFIDENCE,SO2,30.0,,10.0,30.0,12.5,1.15,1.0,16.0
+"Mhada Colony, Pune - IITM",Pune,Maharashtra,107.6,Moderate,PARTIAL_HIGH_CONFIDENCE,PM2.5,107.6,107.6,82.36,,41.25,2.85,,17.0
+"Vijay Nagar, Sangli - MPCB",Sangli,Maharashtra,65.7,Satisfactory,FULL,PM2.5,65.7,65.7,31.0,7.5,12.5,0.85,0.75,13.0
+"Mahal, Nagpur - MPCB",Nagpur,Maharashtra,160.4,Moderate,FULL,PM2.5,160.4,160.4,49.0,11.25,20.0,1.1,1.0,15.0
+"MIDC Ambad, Nashik - MPCB",Nashik,Maharashtra,80.4,Satisfactory,FULL,PM2.5,80.4,80.4,73.54,1.25,15.0,0.8,0.75,19.0
+"Rajanpur, Gajraula - UPPCB",Gajraula,Uttar Pradesh,342.12,Very Poor,FULL,PM2.5,342.12,342.12,138.62,12.5,59.58,5.0,0.25,14.0
+"Govindpuram, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,276.9,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,276.9,276.9,97.06,18.75,38.75,1.6,,26.0
+"Rajlaxmi Nagar, Jhalawar - RSPCB",Jhalawar,Rajasthan,143.9,Moderate,FULL,PM2.5,143.9,143.9,84.32,13.75,42.5,0.7,2.0,20.0
+"Samrat Ashok Udhyan, Jodhpur - RSPCB",Jodhpur,Rajasthan,114.2,Moderate,PARTIAL_HIGH_CONFIDENCE,PM10,114.2,98.37,114.2,3.75,36.25,0.8,,56.88
+"Mandor, Jodhpur - RSPCB",Jodhpur,Rajasthan,106.28,Moderate,FULL,PM10,106.28,67.33,106.28,8.75,31.25,0.8,1.75,50.0
+"Sector-3B Avas Vikas Colony, Agra - UPPCB",Agra,Uttar Pradesh,186.8,Moderate,FULL,PM2.5,186.8,186.8,108.26,32.5,43.75,2.75,1.0,19.0
+"SRM University, Modinagar - UPPCB",Modinagar,Uttar Pradesh,307.85,Very Poor,FULL,PM2.5,307.85,307.85,85.3,11.25,41.25,1.45,1.0,114.1
+"Kashiram Nagar, Moradabad - UPPCB",Moradabad,Uttar Pradesh,220.8,Poor,FULL,PM2.5,220.8,220.8,108.26,26.25,31.25,2.0,1.0,17.0
+"Nacharam_TSIIC IALA, Hyderabad - TSPCB",Hyderabad,Telangana,57.53,Satisfactory,FULL,PM2.5,57.53,57.53,56.88,16.25,17.5,1.7,1.25,24.0
+"Manali Village, Chennai - TNPCB",Chennai,Tamil Nadu,70.6,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,70.6,70.6,57.86,15.0,23.75,2.4,0.5,
+"Vasundhara, Ghaziabad - UPPCB",Ghaziabad,Uttar Pradesh,356.59,Very Poor,FULL,PM2.5,356.59,356.59,151.16,31.25,55.9,2.55,2.0,30.0
+"Madan Mohan Malaviya University of Technology, Gorakhpur - UPPCB",Gorakhpur,Uttar Pradesh,193.4,Moderate,FULL,PM2.5,193.4,193.4,71.58,63.25,13.75,0.3,0.25,1.0
+"Nehru Nagar, Kanpur - UPPCB",Kanpur,Uttar Pradesh,65.7,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,65.7,65.7,35.0,15.0,58.35,2.6,,15.0
+"Kendriya Vidyalaya, Lucknow - CPCB",Lucknow,Uttar Pradesh,193.4,Moderate,FULL,PM2.5,193.4,193.4,83.34,8.75,40.0,2.05,4.25,50.0
+"Talkatora District Industries Center, Lucknow - CPCB",Lucknow,Uttar Pradesh,91.83,Satisfactory,FULL,PM2.5,91.83,91.83,73.54,15.0,32.5,2.05,4.0,76.48
+"Nayapura, Kota - RSPCB",Kota,Rajasthan,153.8,Moderate,FULL,PM2.5,153.8,153.8,99.02,3.75,41.25,0.9,1.5,47.0
+"Dhanmandi, Kota - RSPCB",Kota,Rajasthan,120.8,Moderate,FULL,PM2.5,120.8,120.8,100.0,7.5,48.75,1.2,0.75,27.0
+"Sector-116, Noida - UPPCB",Noida,Uttar Pradesh,356.59,Very Poor,FULL,PM2.5,356.59,356.59,146.54,21.25,77.95,3.2,3.25,32.0
+"Mahabir Colliery, Asansol - WBPCB",Asansol,West Bengal,28.33,Good,FULL,PM2.5,28.33,28.33,24.0,12.5,5.0,0.95,0.5,10.0
+"Trivenidevi Bhalotia College, Asansol - WBPCB",Asansol,West Bengal,41.67,Good,FULL,PM2.5,41.67,41.67,35.0,15.0,21.25,2.0,1.0,10.0
+"Mahishkapur Road_B-Zone, Durgapur - WBPCB",Durgapur,West Bengal,107.6,Moderate,FULL,PM2.5,107.6,107.6,63.74,1.25,5.0,5.4,0.0,21.0
+"Ghusuri, Howrah - WBPCB",Howrah,West Bengal,36.67,Good,FULL,PM2.5,36.67,36.67,29.0,11.25,32.5,0.9,2.75,21.0
+"Belur Math, Howrah - WBPCB",Howrah,West Bengal,40.0,Good,FULL,NO2,40.0,23.33,21.0,10.0,40.0,0.6,2.5,9.0
+"Rabindra Bharati University, Kolkata - WBPCB",Kolkata,West Bengal,35.0,Good,FULL,PM2.5,35.0,35.0,26.0,11.25,22.5,1.3,1.25,34.0
+"Jadavpur, Kolkata - WBPCB",Kolkata,West Bengal,46.67,Good,FULL,PM2.5,46.67,46.67,26.0,7.5,37.5,1.75,3.0,11.0
+"Ballygunge, Kolkata - WBPCB",Kolkata,West Bengal,35.0,Good,FULL,PM2.5,35.0,35.0,24.0,7.5,35.0,0.6,1.75,34.0
+"Secretariat, Amaravati - APPCB",Amaravati,Andhra Pradesh,204.3,Poor,FULL,PM2.5,204.3,204.3,92.16,15.0,36.25,0.75,1.25,16.0
+"IIPHG Lekawada, Gandhinagar - IITM",Gandhinagar,Gujarat,250.5,Poor,FULL,PM2.5,250.5,250.5,78.44,2.5,21.25,0.6,1.5,2.0
+"NISE Gwal Pahari, Gurugram - IITM",Gurugram,Haryana,326.13,Very Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,326.13,326.13,132.68,,32.5,3.0,,16.0
+"Mini Secretariat, Charkhi Dadri - HSPCB",Charkhi Dadri,Haryana,283.5,Poor,FULL,PM2.5,283.5,283.5,79.42,10.0,18.75,0.7,1.5,25.0
+"Chandni Chowk, Delhi - IITM",Delhi,Delhi,387.82,Very Poor,FULL,PM2.5,387.82,387.82,128.72,18.75,65.7,3.9,1.0,26.0
+"Bandhavgar Colony, Satna - Birla Cement",Satna,Madhya Pradesh,83.67,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,83.67,83.67,71.58,23.75,16.25,0.8,,17.0
+"Ramdaspeth, Akola - MPCB",Akola,Maharashtra,64.07,Satisfactory,FULL,PM2.5,64.07,64.07,46.0,5.0,11.25,0.6,1.75,14.0
+"Indira Colony Vistar, Pali - RSPCB",Pali,Rajasthan,227.4,Poor,PARTIAL_HIGH_CONFIDENCE,PM2.5,227.4,227.4,,12.5,25.0,1.7,1.75,20.0
+"MM Ground, Bikaner - RSPCB",Bikaner,Rajasthan,137.96,Moderate,FULL,PM10,137.96,130.7,137.96,7.5,63.25,2.7,2.0,55.9
+"Pali Dungra, Mathura - UPPCB",Mathura,Uttar Pradesh,353.55,Very Poor,FULL,PM2.5,353.55,353.55,141.92,16.25,8.75,2.25,0.5,13.0
+"Eco Herbal Park, Moradabad - UPPCB",Moradabad,Uttar Pradesh,214.2,Poor,FULL,PM2.5,214.2,214.2,104.96,15.0,30.0,1.0,3.25,33.0
+"Transport Nagar, Moradabad - UPPCB",Moradabad,Uttar Pradesh,313.18,Very Poor,FULL,PM2.5,313.18,313.18,128.06,26.25,30.0,1.85,1.25,4.0
+"Krishna Nagar, Bharatpur - RSPCB",Bharatpur,Rajasthan,167.0,Moderate,FULL,PM2.5,167.0,167.0,112.88,10.0,21.25,2.25,2.0,58.84
+"Fertilizer Township, Rourkela - OSPCB",Rourkela,Odisha,60.8,Satisfactory,PARTIAL_HIGH_CONFIDENCE,PM2.5,60.8,60.8,45.0,13.75,13.75,0.7,,

@@ -1,0 +1,17 @@
+# requirements.txt — India Air Quality Intelligence
+# All packages are from the Python standard library except those listed below.
+# main.py imports: csv, json, math, os, sys, collections, statistics
+# All of the above are standard library modules — no pip install required.
+#
+# The dashboard (dashboard.html) runs entirely in the browser.
+# ECharts 5.4.3 is loaded from CDN — no Python package needed.
+#
+# If you use Python to serve the dashboard:
+#   python -m http.server 8000   (uses built-in http.server — no install needed)
+#
+# No third-party Python packages are required to run main.py.
+# No third-party Python dependencies required.
+
+# main.py uses only the Python standard library.
+#
+
