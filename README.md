@@ -72,7 +72,6 @@ The raw dataset is in **long format**, with each monitoring station appearing on
 
 # 🔄 Project Workflow
 
-```text
 Raw CPCB CAAQMS Dataset
           │
           ▼
@@ -120,86 +119,69 @@ Exploratory Data Analysis
           │
           ▼
  Analytical Report
-🧹 Data Cleaning & Quality
 
+
+### 🧹 Data Cleaning & Quality
 The raw dataset was preserved and all transformations were performed on a working copy.
 
-1. Numeric Parsing
-
+## 1. Numeric Parsing
 The following fields were converted to numeric values:
-
-pollutant_min
-pollutant_max
-pollutant_avg
-latitude
-longitude
+- pollutant_min
+-pollutant_max
+- pollutant_avg
+- latitude
+- longitude
 
 The original pollutant fields were preserved while numeric versions were created for analysis.
+- NA values were converted to null/NaN.
 
-NA values were converted to null/NaN.
+## 2. Missing Values
+- There were 343 missing pollutant_avg readings, representing approximately 9.8% of all raw records.
+- Missing values were not imputed.
+- Instead, missingness was retained and propagated through the analysis. AQI confidence categories were used to communicate the completeness of the underlying pollutant measurements.
 
-2. Missing Values
+## 3. Station Name Cleaning
+- 35 station names contained leading/trailing whitespace.
+- These values were standardised before station-level aggregation.
+- Board acronyms were also extracted from station names containing the " - " suffix pattern.
 
-There were 343 missing pollutant_avg readings, representing approximately 9.8% of all raw records.
-
-Missing values were not imputed.
-
-Instead, missingness was retained and propagated through the analysis. AQI confidence categories were used to communicate the completeness of the underlying pollutant measurements.
-
-3. Station Name Cleaning
-
-35 station names contained leading/trailing whitespace.
-
-These values were standardised before station-level aggregation.
-
-Board acronyms were also extracted from station names containing the " - " suffix pattern.
-
-4. Geographic Validation
-
+## 4. Geographic Validation
 The dataset was checked for:
+- Missing latitude
+- Missing longitude
+- Coordinates outside India
+- Duplicate coordinates
+- Duplicate station names
 
-Missing latitude
-Missing longitude
-Coordinates outside India
-Duplicate coordinates
-Duplicate station names
-Results
-Quality Check	Result
-Missing latitude	0
-Missing longitude	0
-Coordinates outside India	0
-Duplicate coordinates	0
-Duplicate station names	0
-5. Suspicious Zero Detection
+## Results
+# Quality Check	       Result
+- Missing latitude	          0
+- Missing longitude	          0
+- Coordinates outside India	0
+- Duplicate coordinates	0
+- Duplicate station names	0
 
-Zero readings for NH3 and SO2 were flagged when they occurred at stations that were otherwise actively reporting other pollutants.
+## 5. Suspicious Zero Detection
+- Zero readings for NH3 and SO2 were flagged when they occurred at stations that were otherwise actively reporting other pollutants.
+- These records were not deleted.
+- They were retained and marked as suspicious observations requiring validation rather than being automatically treated as erroneous measurements.
 
-These records were not deleted.
-
-They were retained and marked as suspicious observations requiring validation rather than being automatically treated as erroneous measurements.
-
-6. CO Unit Conversion
-
+## 6. CO Unit Conversion
 The source CSV contains CO values interpreted as µg/m³.
-
 However, the CPCB AQI breakpoints for CO are expressed in mg/m³.
-
 Therefore:
-
-CO_mg/m³ = CO_µg/m³ ÷ 1000
-
+# CO_mg/m³ = CO_µg/m³ ÷ 1000
 The original CO value was retained and the converted value was used for AQI sub-index calculation.
 
-📐 AQI Methodology
+### 📐 AQI Methodology
 
 The project implements the CPCB 2014 National Air Quality Index framework using a piecewise-linear sub-index calculation.
 
 For each pollutant:
 
-SI = I_low + (C - C_low) × (I_high - I_low) / (C_high - C_low)
+## SI = I_low + (C - C_low) × (I_high - I_low) / (C_high - C_low)
 
 Where:
-
 C = observed pollutant concentration
 C_low = lower concentration breakpoint
 C_high = upper concentration breakpoint
@@ -221,7 +203,7 @@ MAX(
 
 The pollutant with the highest sub-index is identified as the dominant AQI-driving pollutant.
 
-📋 CPCB AQI Categories
+## 📋 CPCB AQI Categories
 AQI Range	Category
 0–50	Good
 51–100	Satisfactory
@@ -229,10 +211,9 @@ AQI Range	Category
 201–300	Poor
 301–400	Very Poor
 401–500	Severe
-🧮 Pollutant Breakpoints
 
+## 🧮 Pollutant Breakpoints
 The project implements the CPCB 2014 pollutant breakpoints for:
-
 PM2.5
 PM10
 SO2
@@ -245,7 +226,7 @@ CO breakpoints are applied after converting the dataset's CO values from µg/m³
 
 The implemented breakpoint tables are contained directly in the Python analysis pipeline.
 
-📊 AQI Confidence Classification
+## 📊 AQI Confidence Classification
 
 Not every station has all seven pollutant measurements.
 
@@ -258,7 +239,7 @@ SINGLE_POLLUTANT_ONLY
 
 This allows calculated AQI to be interpreted together with the completeness of the underlying pollutant data.
 
-🔬 Feature Engineering
+## 🔬 Feature Engineering
 
 The project creates station-level analytical features including:
 
@@ -290,7 +271,7 @@ Shannon entropy
 
 Z-scores are used for clustering/similarity analysis only and are not used in AQI computation.
 
-📈 Exploratory Data Analysis
+## 📈 Exploratory Data Analysis
 1. Dominant Pollutant Analysis
 
 For every station, the pollutant with the highest AQI sub-index was identified.
